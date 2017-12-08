@@ -4,8 +4,7 @@
  </head>
  <body>
  <?php echo '<p>Hello World</p>'; ?>
-  <p>Hello Damitra Hehe</p>
-  <p>EAM</p> 
-  <p>Hi yolanda</p>
+  <p>Hello Damitra Hehe</p> 
+ <p>in feature</p>       
  </body>
 </html>
