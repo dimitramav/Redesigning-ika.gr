@@ -1,0 +1,67 @@
+.navbar {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+
+.container-fluid {
+  padding: 0 !important;
+  margin : 0 !important;
+  width: 100% !important;
+}
+
+.target-groups {
+  padding-top: 80px;
+}
+
+@media (min-width: 1700px) {
+    .container{
+        width: 1600px;
+    }
+}
+
+.target-group {
+    width: 200px;
+    height: 200px;
+    padding: 10px 16px;
+    border-radius: 100px;
+    border-style: none;
+    font-size: 24px;
+    line-height: 1.33;
+    background-repeat:no-repeat;
+    background-size: contain;
+    font-style:oblique;
+    opacity: 0.5;
+}
+
+.target-group.family{
+  background-image:url('/opt/lampp/htdocs/eam/images/family.jpg');
+}
+
+.target-group.retired{
+  background-image:url('/opt/lampp/htdocs/eam/images/retired.jpg');
+}
+
+.target-group.employer{
+  background-image:url('/opt/lampp/htdocs/eam/images/employer.jpg');
+}
+
+.target-group.disability{
+  background-image:url('/opt/lampp/htdocs/eam/images/disabled.jpg');
+}
+
+#logo {
+  width: 120px;
+  height: 120px;
+}
+
+.top {
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+.top1 {
+  padding-top: 80px;
+  font-size: 20px;
+}
