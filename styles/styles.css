@@ -21,35 +21,6 @@
     }
 }
 
-.target-group {
-    width: 200px;
-    height: 200px;
-    padding: 10px 16px;
-    border-radius: 100px;
-    border-style: none;
-    font-size: 24px;
-    line-height: 1.33;
-    background-repeat:no-repeat;
-    background-size: contain;
-    font-style:oblique;
-}
-
-.target-group.family{
-  background-image:url('/eam/images/family.jpg');
-}
-
-.target-group.retired{
-  background-image:url('/eam/images/retired.jpg');
-}
-
-.target-group.employer{
-  background-image:url('/eam/images/employer.jpg');
-}
-
-.target-group.disability{
-  background-image:url('/eam/images/disabled.jpg');
-}
-
 #logo {
   width: 120px;
   height: 120px;
@@ -65,14 +36,23 @@
   font-size: 20px;
 }
 
-
-
-.target-group.employer {
+.target-group {
+    width: 200px;
+    height: 200px;
+    padding: 10px 16px;
+    border-radius: 100px;
+    border-style: none;
+    font-size: 24px;
+    line-height: 1.33;
+    background-repeat:no-repeat;
+    background-size: contain;
+    font-style:oblique;
     position: relative;
     background: #ccc;
     overflow: hidden;
 }
-.target-group.employer:before {
+
+.target-group:before {
     content: ' ';
     display: block;
     position: absolute;
@@ -82,7 +62,6 @@
     height: 100%;
     z-index: 1;
     opacity: 0.5;
-    background-image: url('/eam/images/employer.jpg');
     background-repeat: no-repeat;
     background-position: 50% 0;
     -ms-background-size: cover;
@@ -91,7 +70,25 @@
     -webkit-background-size: cover;
     background-size: cover;
 }
-.target-group.employer h3 {
+
+
+.target-group.family:before {
+    background-image: url('/eam/images/family.jpg');
+}
+
+.target-group.retired:before {
+    background-image: url('/eam/images/retired.jpg');
+}
+
+.target-group.employer:before {
+    background-image: url('/eam/images/employer.jpg');
+}
+
+.target-group.disability:before {
+    background-image: url('/eam/images/disabled.jpg');
+}
+
+.target-group h3 {
     padding-top: 60px;
     text-align: center;
     z-index: 2;
