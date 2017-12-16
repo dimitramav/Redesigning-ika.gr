@@ -32,23 +32,22 @@
     background-repeat:no-repeat;
     background-size: contain;
     font-style:oblique;
-    opacity: 0.5;
 }
 
 .target-group.family{
-  background-image:url('/opt/lampp/htdocs/eam/images/family.jpg');
+  background-image:url('/eam/images/family.jpg');
 }
 
 .target-group.retired{
-  background-image:url('/opt/lampp/htdocs/eam/images/retired.jpg');
+  background-image:url('/eam/images/retired.jpg');
 }
 
 .target-group.employer{
-  background-image:url('/opt/lampp/htdocs/eam/images/employer.jpg');
+  background-image:url('/eam/images/employer.jpg');
 }
 
 .target-group.disability{
-  background-image:url('/opt/lampp/htdocs/eam/images/disabled.jpg');
+  background-image:url('/eam/images/disabled.jpg');
 }
 
 #logo {
@@ -64,4 +63,39 @@
 .top1 {
   padding-top: 80px;
   font-size: 20px;
+}
+
+
+
+.target-group.employer {
+    position: relative;
+    background: #ccc;
+    overflow: hidden;
+}
+.target-group.employer:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    background-image: url('/eam/images/employer.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.target-group.employer h3 {
+    padding-top: 60px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
 }
