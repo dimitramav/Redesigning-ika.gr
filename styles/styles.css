@@ -148,12 +148,13 @@ li a:hover {
 .flex-row {
     flex-direction: row;
     display: flex;
-
+=
 }
 
 .flex-column {
     flex-direction: column;
     display: flex;
+
 
 }
 
@@ -162,16 +163,14 @@ li a:hover {
     padding-top: 40px;
     justify-content: center;
 
-}
 
-.div:hover{
-   background-color:#FF0000;
 }
 
 .flex-body div:not([class*="flex"]) {
     border: 1px solid white;
     flex: 1 1 200px;
     width: 300px;
+
 }
 
 #content{
@@ -180,5 +179,6 @@ li a:hover {
   margin-right: auto;
   position:relative;
   top:50%;
+
 }
 /**/
