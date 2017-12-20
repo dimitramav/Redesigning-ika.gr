@@ -59,7 +59,7 @@ li a:hover {
 }
 
 .target-groups {
-  padding-top: 150px !important; 
+  padding-top: 130px !important;
 }
 
 @media (min-width: 1700px) {
@@ -148,24 +148,18 @@ li a:hover {
 .flex-row {
     flex-direction: row;
     display: flex;
-
+=
 }
 
 .flex-column {
     flex-direction: column;
     display: flex;
-
 }
 
 .flex-body {
     display: flex;
     padding-top: 40px;
     justify-content: center;
-
-}
-
-.div:hover{
-   background-color:#FF0000;
 }
 
 .flex-body div:not([class*="flex"]) {
@@ -181,4 +175,27 @@ li a:hover {
   position:relative;
   top:50%;
 }
+
+/* Styles for every grid button */
+.grid-button {
+  background: #6d7993;
+  cursor: pointer;
+}
+
+/* Top padding in group icons */
+.mobile {
+  padding-top: 15px;
+}
+
+/* Class for responsive flexbox grid */
+@media (max-width: 1000px) {
+  .flex-body {
+    flex-direction: column;
+  }
+  .flex-column {
+    flex-direction: row;
+  }
+
+}
+
 /**/
