@@ -222,24 +222,12 @@ I will show you how to change a height of a standard Bootstrap navbar.
 
 .mega-dropdown-menu:before {
   content: "";
-  border-bottom: 15px solid #fff;
-  border-right: 17px solid transparent;
-  border-left: 17px solid transparent;
-  position: absolute;
-  top: -15px;
-  left: 285px;
-  z-index: 10;
+
 }
 
 .mega-dropdown-menu:after {
   content: "";
-  border-bottom: 17px solid #ccc;
-  border-right: 19px solid transparent;
-  border-left: 19px solid transparent;
-  position: absolute;
-  top: -17px;
-  left: 283px;
-  z-index: 8;
+  
 }
 
 .mega-dropdown-menu > li > ul {
