@@ -1,9 +1,5 @@
-<?php
-	require_once 'login.php';
-	$conn=new mysqli($hn,$un,$pw,$db);
-	if ($conn->connect_error) die ($conn->connect_error)
-	else $echo('hi');
-?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -336,6 +332,19 @@
 
   <!-- End of footer sitemap -->
 </div>
+
+  <?php
+  require_once 'login.php';
+  $conn=new mysqli($hn,$un,$pw,$db);
+  if ($conn->connect_error) die ($conn->connect_error);
+  $query="SELECT * FROM users";
+  $res= $conn->query($query);
+  $res->data_seek(0);
+  while ($row = $res->fetch_assoc()) {
+    echo " id = " . $row['username'] . "\n";
+}
+
+?>
 
 </body>
 </html>
