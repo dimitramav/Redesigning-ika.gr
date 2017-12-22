@@ -193,7 +193,6 @@ I will show you how to change a height of a standard Bootstrap navbar.
   .flex-column {
     flex-direction: row;
   }
-
 }
 
 /* MEGA MENU */
@@ -274,14 +273,6 @@ I will show you how to change a height of a standard Bootstrap navbar.
   font-weight: bold;
 }
 
-.mega-dropdown-menu form {
-  margin: 3px 20px;
-}
-
-.mega-dropdown-menu .form-group {
-  margin-bottom: 3px;
-}
-
 .inner-list {
     list-style-type:none
 }
@@ -305,6 +296,11 @@ I will show you how to change a height of a standard Bootstrap navbar.
     color: #111;
 }
 
+.list-header {
+  color: red;
+  font-weight: bold;
+}
+
 footer {
   background-color: #333;
   margin-top: 80px;
@@ -318,10 +314,6 @@ footer {
   color: #ddd;
   padding-top: 20px;
   font-size: 13px;
-}
-
-.divider {
-   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-header {
@@ -350,4 +342,21 @@ footer {
 .footer-item a:hover {
   text-decoration: none !important;
   color: #bbb;
+}
+
+.search-form {
+  margin: 0 1rem;
+  flex-grow: 1;
+  min-width: 18rem;
+  padding-top: 20px;
+}
+
+.search-box {
+  width: 100%;
+  padding: .4rem;
+}
+
+.divider-header {
+  border: 1px solid #aaa;
+  /*box-shadow: 0 20px 20px -20px #333 !important;*/
 }
