@@ -1,5 +1,16 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" >  
+$(function () {
 
-
+        $("#demo3").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: false,
+            
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+    })(jQuery);
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +18,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/scripts/jquery.bootstrap.newsbox.min.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
@@ -298,7 +311,41 @@
   		</div>
 	</div>
   </div>
-
+  <!-- News -->
+   <div class="container line" style="padding-bottom: :20px;">
+      <div class="horizontal-line">
+      <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
+        Ανακοινώσεις <!--Padding is optional-->
+      </span>
+    </div>
+    <div class="panel panel-default"  style="margin-top: 40px;width:908px; margin-left: auto ;margin-right: auto ;"> <!--den kserw pws na to kanw idio size me to flex-->
+      <div class="panel-heading"> <span class="glyphicon glyphicon-list-alt"></span><b>Νέα</b></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <ul id="demo3">
+                <li class="news-item">Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna accumsan,
+                    rhoncus neque id, fringilla dolor. <a href="#">Read more...</a></li>
+                <li class="news-item">Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna accumsan,
+                    rhoncus neque id, fringilla dolor. <a href="#">Read more...</a></li>
+                <li class="news-item">Praesent ornare nisl lorem, ut condimentum lectus gravida ut. Ut velit nunc, vehicula
+                    volutpat laoreet vel, consequat eu mauris. <a href="#">Read more...</a></li>
+                <li class="news-item">Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis nunc. Nunc
+                    et imperdiet magna. Mauris sed eros nulla. <a href="#">Read more...</a></li>
+                <li class="news-item">Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque fermentum
+                    pharetra. <a href="#">Read more...</a></li>
+                <li class="news-item">In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id sagittis
+                    magna. Fusce massa sem, bibendum id. <a href="#">Read more...</a> </li>
+                <li class="news-item">Maecenas nec ligula sed est suscipit aliquet sed eget ipsum. Suspendisse id auctor
+                    nibh. Ut porttitor volutpat augue, non sodales odio dignissi id. <a href="#">Read more...</a></li>
+                <li class="news-item">Onec bibendum consectetur diam, nec euismod urna venenatis eget. Cras consequat
+                    convallis leo. <a href="#">Read more...</a> </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Footer - Sitemap -->
   <footer>
     <div class="row">
@@ -331,17 +378,21 @@
   </footer>
 
   <!-- End of footer sitemap -->
+
+  
+
 </div>
 
   <?php
   require_once 'login.php';
   $conn=new mysqli($hn,$un,$pw,$db);
   if ($conn->connect_error) die ($conn->connect_error);
-  $query="SELECT * FROM users";
+  $query="SELECT username FROM users";
   $res= $conn->query($query);
   $res->data_seek(0);
   while ($row = $res->fetch_assoc()) {
     echo " id = " . $row['username'] . "\n";
+  mysqli_close($con);
 }
 
 ?>
