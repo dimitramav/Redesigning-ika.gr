@@ -482,20 +482,21 @@ $(function () {
   require_once 'login.php';
   $conn=new mysqli($hn,$un,$pw,$db);
   if ($conn->connect_error) die ($conn->connect_error);
+  mysqli_query($conn, "SET NAMES 'utf8'");
   $query="SELECT username FROM users";
   $res= $conn->query($query);
   $res->data_seek(0);
   while ($row = $res->fetch_assoc()) {
-    echo " username = " . $row['username'] . "<br>";
+    //echo " username = " . $row['username'] . "<br>";
 }
 
   $pas = password_hash ( '12345' , PASSWORD_BCRYPT);
-  echo $pas ."<br>";
+  //echo $pas ."<br>";
 
   if (password_verify('12345', $pas)) {
-    echo 'Password is valid!';
+    //echo 'Password is valid!';
   } else {
-    echo 'Invalid password.';
+    //echo 'Invalid password.';
   }
 
 ?>

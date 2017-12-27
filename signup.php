@@ -10,6 +10,7 @@
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="styles/styles.css">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
@@ -254,9 +255,13 @@
   </nav>
     <!-- End Navbar -->
 
-
-<div class="container">
-    <div class="row" style="padding-top: 200px;">
+<div class="container line">
+  <div class="horizontal-line" style="padding-top: 100px;" >
+  <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
+    Εγγραφή<!--Padding is optional-->
+  </span>
+</div>
+    <div class="row" style="padding-top: 100px;">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
     <!-- Form -->
@@ -271,6 +276,35 @@
         <p id="passwordHelp" class="form-text text-muted">Ο κωδικός πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες.</p>
         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Εισάγετε τον κωδικό πρόσβασης">
       </div>
+      <div class="form-group">
+        <label>Όνομα: </label>
+        <input type="username" name="firstname" class="form-control" placeholder="Εισάγετε το όνομα σας">
+      </div>
+      <div class="form-group">
+        <label>Επίθετο: </label>
+        <input type="username" name="lastname" class="form-control" placeholder="Εισάγετε το επίθετο σας">
+      </div>
+      <div class="form-group">
+        <label>Email: </label>
+        <input type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας">
+      </div>
+      <div class="form-group">
+        <label>Α.Μ.Α.: </label>
+        <input name="ama" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Ασφαλισμένου">
+      </div>
+      <div class="form-group">
+        <label>Α.Μ.Κ.Α.: </label>
+        <input name="amka" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Κοινωνικής Ασφάλισης">
+      </div>
+      <div class="form-group">
+        <p id="passwordHelp" class="form-text text-muted">Επιλέξτε την κατηγορία στην οποία ανήκετε.</p>
+      <div class="radio">
+        <label><input type="radio" name="HaveInsurance" value="1">Ασφαλισμένος</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="HaveInsurance" value="0">Συνταξιούχος</label>
+      </div>
+    </div>
       <button type="submit" class="btn btn-primary">Εγγραφή</button>
     </form>
   </div>
