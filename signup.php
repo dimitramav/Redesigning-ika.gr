@@ -307,6 +307,7 @@
     </div>
       <button type="submit" class="btn btn-primary">Εγγραφή</button>
     </form>
+    <!-- Form end -->
   </div>
   <div class="col-sm-4"></div>
     <!-- End of input form -->
