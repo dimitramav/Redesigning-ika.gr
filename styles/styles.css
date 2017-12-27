@@ -43,7 +43,6 @@ I will show you how to change a height of a standard Bootstrap navbar.
   height: 20px;
   border-bottom: 1px solid black;
   text-align:center;
-
 }
 .line {
   padding-top: 50px;

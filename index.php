@@ -17,6 +17,7 @@ $(function () {
   <title>IKA - Αρχική Σελίδα</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -40,10 +41,10 @@ $(function () {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="index.php">
     <img src="/eam/images/logo.svg" width="80" height="80" class="d-inline-block align-top" alt="">
   </a>
-      <a class="navbar-brand" href="#">Ίδρυμα Κοινωνικών Ασφαλίσεων</a>
+      <a class="navbar-brand" href="index.php">Ίδρυμα Κοινωνικών Ασφαλίσεων</a>
     </div>
     <div class="collapse navbar-collapse js-navbar-collapse">
         <ul class="nav navbar-nav">
@@ -252,7 +253,7 @@ $(function () {
         </ul>
 
         <ul class="nav navbar-nav navbar-right text-center">
-          <li><a href="#"><i class ="fas fa-user"></i> Εγγραφή</a></li>
+          <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
         </ul>
 
@@ -471,7 +472,6 @@ $(function () {
       <div class="col-sm-2"></div>
     </div>
   </footer>
-
   <!-- End of footer sitemap -->
 
 
@@ -482,12 +482,22 @@ $(function () {
   require_once 'login.php';
   $conn=new mysqli($hn,$un,$pw,$db);
   if ($conn->connect_error) die ($conn->connect_error);
+  mysqli_query($conn, "SET NAMES 'utf8'");
   $query="SELECT username FROM users";
   $res= $conn->query($query);
   $res->data_seek(0);
   while ($row = $res->fetch_assoc()) {
-    //echo " username = " . $row['username'] . "\n";
+    //echo " username = " . $row['username'] . "<br>";
 }
+
+  $pas = password_hash ( '12345' , PASSWORD_BCRYPT);
+  //echo $pas ."<br>";
+
+  if (password_verify('12345', $pas)) {
+    //echo 'Password is valid!';
+  } else {
+    //echo 'Invalid password.';
+  }
 
 ?>
 
