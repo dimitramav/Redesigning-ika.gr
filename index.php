@@ -11,6 +11,11 @@ $(function () {
         });
     })(jQuery);
 </script>
+
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,10 +258,18 @@ $(function () {
         </ul>
 
         <ul class="nav navbar-nav navbar-right text-center">
+          <!-- Check if the user is logged in -->
+          <?php if(!isset($_SESSION['user'])): ?>
           <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
+          <?php else: ?>
+          <li><a href="#"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
+          <?php endif; ?>
+          <?php if(!isset($_SESSION['user'])): ?>
+            <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
+          <?php else: ?>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Αποσύνδεση</a></li>
+          <?php endif; ?>
         </ul>
-
         <form class="navbar-form text-center search-form" action="/action_page.php">
           <div class="form-group">
             <input type="text" class="form-control search-box" placeholder="Αναζήτηση" name="search">
@@ -487,9 +500,9 @@ $(function () {
   $res= $conn->query($query);
   $res->data_seek(0);
   while ($row = $res->fetch_assoc()) {
-    //echo " username = " . $row['username'] . "<br>";
-}
-
+    echo "<li class='news-item'>". $row['username'] ." Maecenas at magna accumsan,
+        rhoncus neque id, fringilla dolor. <a href='#'>Read more...</a></li>";
+  }
   $pas = password_hash ( '12345' , PASSWORD_BCRYPT);
   //echo $pas ."<br>";
 
@@ -498,7 +511,8 @@ $(function () {
   } else {
     //echo 'Invalid password.';
   }
-
+  echo isset($_SESSION['user']);
+  echo $_SESSION['user'];
 ?>
 
 </body>

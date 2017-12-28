@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -258,54 +259,29 @@
 <div class="container line">
   <div class="horizontal-line" style="padding-top: 100px;" >
   <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
-    Εγγραφή<!--Padding is optional-->
+    Σύνδεση<!--Padding is optional-->
   </span>
 </div>
     <div class="row" style="padding-top: 100px;">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
     <!-- Form -->
-    <form action="newuser.php" method="post">
+    <form action="checklogin.php" method="post">
+      <?php
+      if (isset($_SESSION['message']))
+      {
+          echo $_SESSION['message'];
+          unset($_SESSION['message']);
+      } ?>
       <div class="form-group">
         <label>Όνομα χρήστη: </label>
-        <p id="passwordHelp" class="form-text text-muted">Το όνομα χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες.</p>
         <input type="username" name="username" class="form-control" id="usernameInput" placeholder="Εισάγετε το όνομα χρήστη">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Κωδικός πρόσβασης: </label>
-        <p id="passwordHelp" class="form-text text-muted">Ο κωδικός πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες.</p>
         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Εισάγετε τον κωδικό πρόσβασης">
       </div>
-      <div class="form-group">
-        <label>Όνομα: </label>
-        <input type="username" name="firstname" class="form-control" placeholder="Εισάγετε το όνομα σας">
-      </div>
-      <div class="form-group">
-        <label>Επίθετο: </label>
-        <input type="username" name="lastname" class="form-control" placeholder="Εισάγετε το επίθετο σας">
-      </div>
-      <div class="form-group">
-        <label>Email: </label>
-        <input type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας">
-      </div>
-      <div class="form-group">
-        <label>Α.Μ.Α.: </label>
-        <input name="ama" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Ασφαλισμένου">
-      </div>
-      <div class="form-group">
-        <label>Α.Μ.Κ.Α.: </label>
-        <input name="amka" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Κοινωνικής Ασφάλισης">
-      </div>
-      <div class="form-group">
-        <p id="passwordHelp" class="form-text text-muted">Επιλέξτε την κατηγορία στην οποία ανήκετε.</p>
-      <div class="radio">
-        <label><input type="radio" name="HaveInsurance" value="1">Ασφαλισμένος</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="HaveInsurance" value="0">Συνταξιούχος</label>
-      </div>
-    </div>
-      <button type="submit" class="btn btn-primary">Εγγραφή</button>
+      <button type="submit" class="btn btn-primary">Σύνδεση</button>
     </form>
     <!-- Form end -->
   </div>
@@ -313,6 +289,8 @@
     <!-- End of input form -->
   </div>
 </div>
+
+
 
     <!-- Footer - Sitemap -->
     <footer>

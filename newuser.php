@@ -38,7 +38,10 @@ if(mysqli_query($conn, $sql)){
 } else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 }
-
+session_start();
+$_SESSION['user'] = $username;
 // close connection
 mysqli_close($conn);
+// Redirect to homepage
+header("Location: index.php");
 ?>
