@@ -491,29 +491,5 @@ $(function () {
 
 </div>
 
-  <?php
-  require_once 'login.php';
-  $conn=new mysqli($hn,$un,$pw,$db);
-  if ($conn->connect_error) die ($conn->connect_error);
-  mysqli_query($conn, "SET NAMES 'utf8'");
-  $query="SELECT username FROM users";
-  $res= $conn->query($query);
-  $res->data_seek(0);
-  while ($row = $res->fetch_assoc()) {
-    echo "<li class='news-item'>". $row['username'] ." Maecenas at magna accumsan,
-        rhoncus neque id, fringilla dolor. <a href='#'>Read more...</a></li>";
-  }
-  $pas = password_hash ( '12345' , PASSWORD_BCRYPT);
-  //echo $pas ."<br>";
-
-  if (password_verify('12345', $pas)) {
-    //echo 'Password is valid!';
-  } else {
-    //echo 'Invalid password.';
-  }
-  echo isset($_SESSION['user']);
-  echo $_SESSION['user'];
-?>
-
 </body>
 </html>

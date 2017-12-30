@@ -257,7 +257,11 @@
     <!-- End Navbar -->
 
 <div class="container line">
-  <div class="horizontal-line" style="padding-top: 100px;" >
+  <ol style="margin-top:80px;" class="breadcrumb">
+    <li><a href="index.php">Αρχική Σελίδα</a></li>
+    <li class="active"><a href="#">Σύνδεση</a></li>
+  </ol>
+  <div class="horizontal-line" style="padding-top: 20px;" >
   <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
     Σύνδεση<!--Padding is optional-->
   </span>
@@ -270,7 +274,9 @@
       <?php
       if (isset($_SESSION['message']))
       {
-          echo $_SESSION['message'];
+          echo "<div class='alert alert-danger fade in'>
+                <strong>".$_SESSION['message']."</div>";
+          //echo $_SESSION['message'];
           unset($_SESSION['message']);
       } ?>
       <div class="form-group">

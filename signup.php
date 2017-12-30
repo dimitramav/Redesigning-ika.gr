@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles/styles.css">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+  <script src="scripts/validation.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
@@ -256,11 +257,15 @@
     <!-- End Navbar -->
 
 <div class="container line">
-  <div class="horizontal-line" style="padding-top: 100px;" >
-  <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
-    Εγγραφή<!--Padding is optional-->
-  </span>
-</div>
+  <ol style="margin-top:80px;" class="breadcrumb">
+    <li><a href="index.php">Αρχική Σελίδα</a></li>
+    <li class="active"><a href="#">Εγγραφή</a></li>
+  </ol>
+  <div class="horizontal-line" style="padding-top: 20px;" >
+    <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
+      Εγγραφή<!--Padding is optional-->
+    </span>
+  </div>
     <div class="row" style="padding-top: 100px;">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
@@ -269,12 +274,13 @@
       <div class="form-group">
         <label>Όνομα χρήστη: </label>
         <p id="passwordHelp" class="form-text text-muted">Το όνομα χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες.</p>
-        <input type="username" name="username" class="form-control" id="usernameInput" placeholder="Εισάγετε το όνομα χρήστη">
+        <input onkeydown="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" placeholder="Εισάγετε το όνομα χρήστη" required="required">
+        <p id="usernameError" style="color:red"></p>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Κωδικός πρόσβασης: </label>
         <p id="passwordHelp" class="form-text text-muted">Ο κωδικός πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες.</p>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Εισάγετε τον κωδικό πρόσβασης">
+        <input pattern=".{6,12}" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Εισάγετε τον κωδικό πρόσβασης" required>
       </div>
       <div class="form-group">
         <label>Όνομα: </label>
@@ -286,7 +292,7 @@
       </div>
       <div class="form-group">
         <label>Email: </label>
-        <input type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας">
+        <input onkeydown="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας">
       </div>
       <div class="form-group">
         <label>Α.Μ.Α.: </label>
@@ -305,11 +311,12 @@
         <label><input type="radio" name="HaveInsurance" value="0">Συνταξιούχος</label>
       </div>
     </div>
-      <button type="submit" class="btn btn-primary">Εγγραφή</button>
+      <button id="mySubmit" type="submit" class="btn btn-primary" onclick="validate()">Εγγραφή</button>
     </form>
     <!-- Form end -->
   </div>
-  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+  </div>
     <!-- End of input form -->
   </div>
 </div>
