@@ -1,5 +1,3 @@
-
-
 <?php
   session_start();
 ?>
@@ -27,7 +25,7 @@
         $("#demo3").bootstrapNews({
             newsPerPage: 3,
             autoplay: false,
-            
+
             onToDo: function () {
                 //console.log(this);
             }
@@ -340,10 +338,10 @@
             <div class="col-xs-12">
               <?php
               require_once 'login.php';
-              $conn = new mysqli($hn,$un,$pw,$db); 
-              $sql_news = "SELECT notes FROM news";  
-              $result_news = $conn->query($sql_news);  
-              ?>         
+              $conn = new mysqli($hn,$un,$pw,$db);
+              $sql_news = "SELECT notes FROM news";
+              $result_news = $conn->query($sql_news);
+              ?>
               <ul id="demo3">
               <?php
               if ($result_news->num_rows > 0) {
