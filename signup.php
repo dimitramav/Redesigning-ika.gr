@@ -261,10 +261,10 @@
     <li><a href="index.php">Αρχική Σελίδα</a></li>
     <li class="active"><a href="#">Εγγραφή</a></li>
   </ol>
-  <div class="horizontal-line" style="padding-top: 20px;" >
-    <span style="font-size: 30px; background-color: #FFF; padding: 0 20px;">
-      Εγγραφή<!--Padding is optional-->
-    </span>
+  <div class="horizontal-line">
+      <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
+        Εγγραφή <!--Padding is optional-->
+      </span>
   </div>
     <div class="row" style="padding-top: 100px;">
       <div class="col-sm-4"></div>
