@@ -263,7 +263,7 @@
           <?php if(!isset($_SESSION['user'])): ?>
           <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
           <?php else: ?>
-          <li><a href="#"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
+          <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
           <?php endif; ?>
           <?php if(!isset($_SESSION['user'])): ?>
             <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
@@ -333,11 +333,12 @@
         Ανακοινώσεις <!--Padding is optional-->
       </span>
     </div>
-    <div class="panel panel-default"  style="margin-top: 40px;width:908px; margin-left: auto ;margin-right: auto ;"> <!--den kserw pws na to kanw idio size me to flex-->
+  </div>
+  </br>
+  </br>
+    <div class="panel panel-default my-news"> <!--den kserw pws na to kanw idio size me to flex-->
       <div class="panel-heading"> <span class="glyphicon glyphicon-list-alt"></span><b>Νέα</b></div>
         <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-12">
               <?php
               require_once 'login.php';
               $conn = new mysqli($hn,$un,$pw,$db); 
@@ -349,16 +350,15 @@
               if ($result_news->num_rows > 0) {
                 while( $row = $result_news->fetch_assoc())
                 {
-                  echo '<li class="news-item">'.$row['notes'] . '</li>';
+                  echo '<li class="list-group-item">'.$row['notes'] . '</li>';
                 }
               }
               ?>
               </ul>
-            </div>
-        </div>
+           
       </div>
     </div>
-  </div>
+
   <!-- Footer - Sitemap -->
   <footer>
     <div class="row">
