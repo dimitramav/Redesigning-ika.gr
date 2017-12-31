@@ -1,16 +1,4 @@
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" >
-$(function () {
 
-        $("#demo3").bootstrapNews({
-            newsPerPage: 3,
-            autoplay: false,
-
-            onToDo: function () {
-                //console.log(this);
-            }
-        });
-    })(jQuery);
-</script>
 
 <?php
   session_start();
@@ -33,6 +21,19 @@ $(function () {
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
+
+<script type="text/javascript">
+    $(function () {
+        $("#demo3").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: false,
+            
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+    });
+</script>
 
 <div class="container-fluid">
 <!-- Navbar Code -->
@@ -337,23 +338,21 @@ $(function () {
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12">
+              <?php
+              require_once 'login.php';
+              $conn = new mysqli($hn,$un,$pw,$db); 
+              $sql_news = "SELECT notes FROM news";  
+              $result_news = $conn->query($sql_news);  
+              ?>         
               <ul id="demo3">
-                <li class="news-item">Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna accumsan,
-                    rhoncus neque id, fringilla dolor. <a href="#">Read more...</a></li>
-                <li class="news-item">Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna accumsan,
-                    rhoncus neque id, fringilla dolor. <a href="#">Read more...</a></li>
-                <li class="news-item">Praesent ornare nisl lorem, ut condimentum lectus gravida ut. Ut velit nunc, vehicula
-                    volutpat laoreet vel, consequat eu mauris. <a href="#">Read more...</a></li>
-                <li class="news-item">Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis nunc. Nunc
-                    et imperdiet magna. Mauris sed eros nulla. <a href="#">Read more...</a></li>
-                <li class="news-item">Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque fermentum
-                    pharetra. <a href="#">Read more...</a></li>
-                <li class="news-item">In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id sagittis
-                    magna. Fusce massa sem, bibendum id. <a href="#">Read more...</a> </li>
-                <li class="news-item">Maecenas nec ligula sed est suscipit aliquet sed eget ipsum. Suspendisse id auctor
-                    nibh. Ut porttitor volutpat augue, non sodales odio dignissi id. <a href="#">Read more...</a></li>
-                <li class="news-item">Onec bibendum consectetur diam, nec euismod urna venenatis eget. Cras consequat
-                    convallis leo. <a href="#">Read more...</a> </li>
+              <?php
+              if ($result_news->num_rows > 0) {
+                while( $row = $result_news->fetch_assoc())
+                {
+                  echo '<li class="news-item">'.$row['notes'] . '</li>';
+                }
+              }
+              ?>
               </ul>
             </div>
         </div>

@@ -261,8 +261,12 @@
     <li><a href="index.php">Αρχική Σελίδα</a></li>
     <li class="active"><a href="#">Σύνδεση</a></li>
   </ol>
-  <h2><span>Σύνδεση<!--Padding is optional--></span></h2>
-    <div class="row" style="padding-top: 30px;">
+    <div class="horizontal-line">
+      <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
+        Σύνδεση <!--Padding is optional-->
+      </span>
+    </div>
+    <div class="row" style="padding-top: 100px;">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
     <!-- Form -->
