@@ -385,6 +385,15 @@ footer {
 
 }
 
+.panel
+{
+  width:908px !important;
+  max-width: 100% !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
 #jquery-script-menu {
   position: fixed;
   height: 90px;
@@ -473,3 +482,76 @@ h2 span {
 .error-form {
   border-color: red;
 }
+
+/* profile */
+
+/*side panel*/
+.header1 {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+.active {
+    font-weight:bold;
+}
+.section {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+
+.tab {
+    float: left;
+    background-color: #f1f1f1;
+    width: 200px;
+    height: 300px;
+}
+
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* end of side panel */
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: none;
+    width: 70%;
+    height:100vh;
+    border-left: none;
+}
+
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
