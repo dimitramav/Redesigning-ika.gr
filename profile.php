@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>IKA - Αρχική Σελίδα</title>
+  <title>Προφίλ</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,8 +18,8 @@
 
 </head>
 <body>
- <!--different content for every link in side menu--> 
-<script>  
+ <!--different content for every link in side menu-->
+<script>
    function openSection(evt, choice) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -32,8 +32,8 @@
     }
     document.getElementById(choice).style.display = "block";
     evt.currentTarget.className += " active";
-    
-} 
+
+}
 </script>
   <div class="container-fluid">
   <!-- Navbar Code -->
@@ -283,7 +283,7 @@
     <div class="row text-center" style="margin-top: 20px; margin-bottom: 20px; border-bottom-style: solid;">
       <div class="col-md-3">
           <i class ="fas fa-user-circle fa-3x" style="vertical-align:middle;"></i>
-      </div>  
+      </div>
       <div class="col-md-9">
             <a href="#" class="w3-bar-item"  style="text-decoration:none;color:#777;"><h4>maria papathanasiou</h4></a>
       </div>
@@ -297,11 +297,11 @@
 </div>
 <div id="current_user" class="tabcontent">
   <h3 style="margin-top: 80px;">current_user</h3>
-  
+
 </div>
 
-<div id="history" class="tabcontent" style="background-color: red;">   
-  History
+<div id="history" class="tabcontent" style="margin-top: 500px;background-color: red;">
+  <p class="text-center">History</p>
 </div>
 
 <div id="progress" class="tabcontent">
@@ -314,7 +314,7 @@
   <!--End side panel-->
 
 
-  
+
 </div>
 
 
