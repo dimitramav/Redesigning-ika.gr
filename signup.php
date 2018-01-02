@@ -274,8 +274,10 @@
       <div class="form-group">
         <label>Όνομα χρήστη: </label>
         <p id="passwordHelp" class="form-text text-muted">Το όνομα χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες.</p>
-        <input onkeydown="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" placeholder="Εισάγετε το όνομα χρήστη" required="required">
+        <input onchange="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" placeholder="Εισάγετε το όνομα χρήστη" required>
         <p id="usernameError" style="color:red"></p>
+        <span class="success"></span>
+        <span class="error"></span>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Κωδικός πρόσβασης: </label>
@@ -284,23 +286,23 @@
       </div>
       <div class="form-group">
         <label>Όνομα: </label>
-        <input type="username" name="firstname" class="form-control" placeholder="Εισάγετε το όνομα σας">
+        <input type="username" name="firstname" class="form-control" placeholder="Εισάγετε το όνομα σας" required>
       </div>
       <div class="form-group">
         <label>Επίθετο: </label>
-        <input type="username" name="lastname" class="form-control" placeholder="Εισάγετε το επίθετο σας">
+        <input type="username" name="lastname" class="form-control" placeholder="Εισάγετε το επίθετο σας"  required>
       </div>
       <div class="form-group">
         <label>Email: </label>
-        <input onkeydown="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας">
+        <input onchange="checkEmail()" onmouseout="checkEmail()" onmouseover="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας" required>
       </div>
       <div class="form-group">
         <label>Α.Μ.Α.: </label>
-        <input name="ama" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Ασφαλισμένου">
+        <input name="ama" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Ασφαλισμένου" required>
       </div>
       <div class="form-group">
         <label>Α.Μ.Κ.Α.: </label>
-        <input name="amka" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Κοινωνικής Ασφάλισης">
+        <input name="amka" class="form-control" placeholder="Εισάγετε τον Αριθμό Μητρώου Κοινωνικής Ασφάλισης" required>
       </div>
       <div class="form-group">
         <p id="passwordHelp" class="form-text text-muted">Επιλέξτε την κατηγορία στην οποία ανήκετε.</p>
@@ -311,7 +313,9 @@
         <label><input type="radio" name="HaveInsurance" value="0">Συνταξιούχος</label>
       </div>
     </div>
-      <button id="mySubmit" type="submit" class="btn btn-primary" onclick="validate()">Εγγραφή</button>
+      <div onmouseover="validate()">
+        <button id="mySubmit" type="submit" class="btn btn-primary">Εγγραφή</button>
+      </div>
     </form>
     <!-- Form end -->
   </div>

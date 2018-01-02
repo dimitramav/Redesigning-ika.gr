@@ -34,8 +34,6 @@ I will show you how to change a height of a standard Bootstrap navbar.
 
 /* Button Shading */
 
-
-
 /* Horizontal line */
 
 .horizontal-line{
@@ -466,6 +464,23 @@ h2 {
 h2 span {
   background:#fff;
   padding:0 20px;
+}
+
+/* Username already exists */
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.success-form {
+  border-color: green;
+}
+
+.error-form {
+  border-color: red;
 }
 
 /* profile */
