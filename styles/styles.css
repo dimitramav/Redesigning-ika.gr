@@ -144,7 +144,6 @@ I will show you how to change a height of a standard Bootstrap navbar.
 .flex-row {
     flex-direction: row;
     display: flex;
-=
 }
 
 .flex-column {
@@ -495,7 +494,8 @@ h2 span {
 .active {
     font-weight:bold;
 }
-.section {
+
+.section1 {
     width:350px;
     float:left;
     padding:10px;
@@ -555,3 +555,21 @@ h2 span {
     to {opacity: 1;}
 }
 
+/* Styles for insured.php */
+
+h3.padding {
+  font-weight: bold;
+}
+
+p.padding {
+  color: white;
+  padding-left: 15px;
+}
+
+a.questions {
+  text-decoration: none;
+}
+
+p.padding:hover {
+  color: black;
+}
