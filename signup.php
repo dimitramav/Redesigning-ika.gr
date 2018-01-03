@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>IKA - Αρχική Σελίδα</title>
+  <title>Εγγραφή</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -270,6 +270,7 @@
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
     <!-- Form -->
+    <div  onmouseover="validate()" onmouseout="validate()" onclick="validate()">
     <form action="newuser.php" method="post">
       <div class="form-group">
         <label>Όνομα χρήστη: </label>
@@ -280,9 +281,17 @@
         <span class="error"></span>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Κωδικός πρόσβασης: </label>
+        <label>Κωδικός πρόσβασης: </label>
         <p id="passwordHelp" class="form-text text-muted">Ο κωδικός πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες.</p>
-        <input pattern=".{6,12}" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Εισάγετε τον κωδικό πρόσβασης" required>
+        <p id="passwordHelp" class="form-text text-muted">Πρέπει οπωσδήποτε να περιέχει ένα μικρό χαρακτήρα, ένα κεφαλαίο, έναν αριθμό και ένα σύμβολο.</p>
+        <input onchange="checkPassword()" type="password" name="password" class="form-control" id="password" placeholder="Εισάγετε τον κωδικό πρόσβασης" required>
+        <p id="errorPassword" style="color:red;"></p>
+      </div>
+      <div class="form-group">
+        <label>Επαλήθευση κωδικού πρόσβασης: </label>
+        <input onchange="verifyPassword()" type="password" name="password" class="form-control" id="verify" placeholder="Εισάγετε ξανά τον κωδικό πρόσβασης" required>
+        <p id="errorVerify" style="color:red;"></p>
+        <p id="passwordMatches" style="color:green;"></p>
       </div>
       <div class="form-group">
         <label>Όνομα: </label>
@@ -294,7 +303,7 @@
       </div>
       <div class="form-group">
         <label>Email: </label>
-        <input onchange="checkEmail()" onmouseout="checkEmail()" onmouseover="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας" required>
+        <input onchange="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας" required>
       </div>
       <div class="form-group">
         <label>Α.Μ.Α.: </label>
@@ -313,10 +322,9 @@
         <label><input type="radio" name="HaveInsurance" value="0">Συνταξιούχος</label>
       </div>
     </div>
-      <div onmouseover="validate()">
-        <button id="mySubmit" type="submit" class="btn btn-primary">Εγγραφή</button>
-      </div>
+      <button id="mySubmit" type="submit" class="btn btn-primary">Εγγραφή</button>
     </form>
+  </div>
     <!-- Form end -->
   </div>
   <div class="col-sm-4">
