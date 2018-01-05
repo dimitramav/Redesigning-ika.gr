@@ -573,3 +573,33 @@ a.questions {
 p.padding:hover {
   color: black;
 }
+
+/* Styles for insured_application.php */
+.steps {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border-style: none;
+    font-size: 20px;
+    line-height: 1.33;
+    background-repeat:no-repeat;
+    background-size: contain;
+    font-style:oblique;
+    position: relative;
+    background: #ccc;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+h3.app {
+  font-size: 35px;
+  padding-top: 50px;
+  padding-left: 3px;
+  color: black;
+  font-weight: bold;
+}
+
+ .glyphicon.glyphicon-triangle-bottom {
+   font-size: 100px;
+   margin-left: 20px;
+ }
