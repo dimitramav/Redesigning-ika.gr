@@ -58,7 +58,7 @@
             <ul class="dropdown-menu mega-dropdown-menu row">
               <li class="col-sm-6 section">
                 <ul>
-                  <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
+                  <li class="dropdown-header text-center"><a href="insured.php" style="text-decoration:none;">Ασφαλισμένοι</a></li>
                   <li class="divider divider-header"></li>
                 </ul>
                 <ul class="row">
@@ -287,7 +287,7 @@
     <div class="row text-center target-groups">
       <div class="col-md-2"></div>
       <div class="col-md-2">
-        <div type="button" class="btn btn-info target-group family"><h3>Ασφαλισμένοι</h3></div>
+        <div type="button" class="btn btn-info target-group family"><a href="insured.php" style="text-decoration:none;"><h3>Ασφαλισμένοι</h3></a></div>
       </div>
       <div class="col-md-2">
         <div type="button" class="btn btn-info target-group retired"><h3>Συνταξιούχοι</h3></div>
@@ -353,7 +353,7 @@
               }
               ?>
               </ul>
-           
+
       </div>
     </div>
 
