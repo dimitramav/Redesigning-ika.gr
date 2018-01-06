@@ -271,49 +271,64 @@
     <div class="container line">
       <ol style="margin-top:80px;" class="breadcrumb">
         <li><a href="index.php">Αρχική Σελίδα</a></li>
-        <li class="active"><a href="insured.php">Ασφαλισμένοι</a></li>
+        <li><a href="insured.php">Ασφαλισμένοι</a></li>
+        <li class="active"><a href="insured.php">Δήλωση Έμμεσα Ασφαλισμένου Προσώπου</a></li>
       </ol>
         <div class="horizontal-line">
           <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
-            Είσαι ασφαλισμένος ; <!--Padding is optional-->
+            Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
           </span>
         </div>
 
-        <!-- Flexbox Grid -->
-        <div class="flex-body">
-       		<div class="flex-column" style="margin: 40px;">
-        		<div  class="text-center" style="background: #6d7993; cursor: pointer;" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'">
-              <h3 class="padding">
-                <br><br><br>
-                Συνταξιοδότηση
-              </h3>
-        		</div>
-        		<div style="background: #6d7993;">
-              <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="#" class="questions"><p class="padding">να υπολογίσεις το ποσό της σύνταξης σου ;</p></a>
-              <a href="#" class="questions"><p class="padding">να βρείς σε ποιά ηλικία μπορείς να συνταξιοδοτηθείς ;</p></a>
-              <a href="#" class="questions"><p class="padding">να κάνεις αίτηση συνταξιοδότησης ;</p></a>
+        <!-- Put the bootstrap grid here -->
+        <!-- To create the layout with the circles and the arrows -->
+        <div class="row">
+          <div class="text-center col-sm-4">
+            <div type="button" class="btn btn-info steps text-center"><h3 class="app">ΒΗΜΑ 1</h3></div>
+            <div class="row">
+              <div class="text-center col-sm-12">
+                    <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
+              </div>
             </div>
-      		</div>
-
-      		<div class="flex-column" style="margin: 40px;">
-        		<div class="text-center" style="background: #6d7993; cursor: pointer;" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'"><h3 class="padding"><br><br><br>Ασφαλιστικά Προνόμια</h3></div>
-        		<div style="background: #6d7993;">
-              <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="#" class="questions"><p class="padding">να πάρεις άδεια μητρότητας ;</p></a>
-              <a href="#" class="questions"><p class="padding">να πάρεις αναρρωτική άδεια ;</p></a>
-              <a href="#" class="questions"><p class="padding">να πάρεις άδεια διακοπών ;</p></a>
-            </div>
-      		</div>
-
-          <div class="flex-column" style="margin: 40px;">
-            <div class="text-center" style="background: #6d7993; cursor: pointer;"  onclick="location.href='insured_application.php'" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'"><h3 class="padding"><br><br>Δήλωση Έμμεσα Ασφαλισμένων Προσώπων</h3></div>
-            <div style="background: #6d7993;">
-              <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="insured_application.php" class="questions"><p class="padding">να ασφαλίσεις τα αγαπημένα σου πρόσωπα ;</p></a>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+              </div>
+              <div class="col-sm-1"></div>
             </div>
           </div>
-    	</div>
+          <div class="col-sm-4 text-center">
+            <div type="button" class="btn btn-info steps"><h3 class="app">ΒΗΜΑ 2</h3></div>
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                    <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+              </div>
+              <div class="col-sm-1"></div>
+            </div>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div type="button" class="btn btn-info steps text-center"><h3 class="app">ΒΗΜΑ 3</h3></div>
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                    <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+              </div>
+              <div class="col-sm-1"></div>
+            </div>
+          </div>
+        </div>
 
     </div>
 
