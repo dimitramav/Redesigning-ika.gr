@@ -79,6 +79,7 @@ function validate() {
 }
 
 /* Ajax call to check if username already exists */
+/* Asynchronous call */
 $(document).ready(function(){
   $("#usernameInput").change(function(){
     $.ajax({
@@ -118,4 +119,29 @@ $(document).ready(function(){
             }
     });
   });
+
+});
+
+$(document).ready(function(){
+// Check if modal sign in is ok
+$("#connect").click(function(){
+  $.ajax({
+  url : "checkModalLogin.php",// your username checker url
+  type : "POST",
+  data : {"username":$("#modalUsername").val(), "password":$("#modalPassword").val()},
+  success : function (data)
+          {
+            console.log(data);
+            if (data == "fail") {
+              console.log("hoho");
+              $( ".errorModal" ).html("Λάθος όνομα χρήστη ή κωδικός πρόσβασης.");
+            }
+            else {
+              document.location = 'insured_form.php';
+              $( ".errorModal" ).html("");
+            }
+          }
+  });
+});
+
 });
