@@ -134,7 +134,7 @@ $("#connect").click(function(){
             console.log(data);
             if (data == "fail") {
               console.log("hoho");
-              $( ".errorModal" ).html("Λάθος όνομα χρήστη ή κωδικός πρόσβασης.");
+              $( ".errorModal" ).html("<div class='alert alert-danger fade in'><strong>Λάθος όνομα χρήστη ή κωδικός πρόσβασης</div>");
             }
             else {
               document.location = 'insured_form.php';

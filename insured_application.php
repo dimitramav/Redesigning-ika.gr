@@ -485,7 +485,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
   					<h1>Συνδέσου στο Λογαριασμό σου</h1><br>
 
-            <span class="errorModal"></span>
+            <div class="errorModal"></div>
             <label>Όνομα Χρήστη :</label>
   					<input id="modalUsername" type="text" name="username" placeholder="Όνομα Χρήστη">
             <label>Κωδικός Πρόσβασης :</label>
