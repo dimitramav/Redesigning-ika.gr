@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Ασφαλισμένοι</title>
+  <title>Δήλωση Έμμεσα Ασφαλισμένου</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -16,6 +16,7 @@
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="scripts/validation.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
@@ -293,7 +294,10 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
+                  <p class="box-header">Συγκέντρωσε τα δικαιολογητικά <br> σε ηλεκτρονική μορφή</p>
+                  <p class="box-content">1. Πιστοποιητικό γέννησης <br> σε μορφή PDF</p>
+                </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
@@ -308,7 +312,11 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
+                  <p class="box-header">Δημιούργησε το <br> Λογαριασμό σου</p>
+                  <p class="box-content">1. Πάτα το κουμπί πάνω δεξιά <br> στην οθόνη για να εγγραφείς</p>
+                  <p class="box-content">2. Αν είσαι ήδη εγγεγραμένος <br> πήγαινε στο Βήμα 3 </p>
+                </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
@@ -323,7 +331,14 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: black; height: 300px; margin-left: 14px;"></div>
+                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
+                  <?php if(!isset($_SESSION['user'])): ?>
+                  <p class="box-header" style="padding-top: 120px;"><a href="#" data-toggle="modal" data-target="#login-modal">Δημιούργησε μία νέα Δήλωση</a></p>
+                  <?php else: ?>
+                  <p class="box-header" style="padding-top: 120px;"><a href="insured_form.php">Δημιούργησε μία νέα Δήλωση</a></p>
+                  <?php endif; ?>
+
+                </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
@@ -463,4 +478,26 @@
   </footer>
   <!-- End of footer sitemap -->
   </div>
+
+  <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      	  <div class="modal-dialog">
+  				<div class="loginmodal-container">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+  					<h1>Συνδέσου στο Λογαριασμό σου</h1><br>
+
+            <div class="errorModal"></div>
+            <label>Όνομα Χρήστη :</label>
+  					<input id="modalUsername" type="text" name="username" placeholder="Όνομα Χρήστη">
+            <label>Κωδικός Πρόσβασης :</label>
+  					<input id="modalPassword" type="password" name="password" placeholder="Κωδικός Πρόσβασης">
+  					<input id="connect" type="submit" name="login" class="login loginmodal-submit" value="Σύνδεση">
+  				  <div class="login-help">
+
+  				  </div>
+  				</div>
+  			</div>
+  		  </div>
+
+
+
 </body>
