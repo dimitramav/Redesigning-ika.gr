@@ -38,8 +38,17 @@ if(mysqli_query($conn, $sql)){
 } else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 }
+
+$query = "SELECT * FROM users WHERE username = '$username'";
+$res= $conn->query($query);
+$res->data_seek(0);
+$row = $res->fetch_assoc();
+
+$id = $row['id'];
+
 session_start();
-$_SESSION['user']=$username;
+$_SESSION['user'] = $username;
+$_SESSION['id'] = $id;
 // close connection
 mysqli_close($conn);
 // Redirect to homepage

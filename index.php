@@ -20,10 +20,9 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
-<body>
 
-<!--news movement-->
-<script type="text/javascript">  
+<body>
+<script type="text/javascript">
     $(function () {
         $("#demo3").bootstrapNews({
             newsPerPage: 3,
@@ -486,9 +485,6 @@
     </div>
   </footer>
   <!-- End of footer sitemap -->
-
-
-
 </div>
 
 </body>
