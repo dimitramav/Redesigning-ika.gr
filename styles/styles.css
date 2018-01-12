@@ -485,6 +485,7 @@ h2 span {
 /* profile */
 
 /*side panel*/
+
 .header1 {
     background-color:black;
     color:white;
@@ -503,10 +504,10 @@ h2 span {
 
 .tab {
     float: left;
-    background-color: #f1f1f1;
     width: 200px;
     height: 300px;
 }
+
 
 .tab button {
     display: block;
@@ -534,13 +535,8 @@ h2 span {
 
 /* end of side panel */
 /* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: none;
-    width: 70%;
-    height:100vh;
-    border-left: none;
+.tabcontent {  /*empty class just for javascript*/
+
 }
 
 
@@ -715,6 +711,7 @@ p.box-content {
   font-size: 12px;
 }
 
+.gi-5x{font-size: 75x;}
 /* Success Message Page */
 
 #success-message {
@@ -736,3 +733,4 @@ margin-top: 50px;
   background: #009933;
   font-size: 20px;
 }
+

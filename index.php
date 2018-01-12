@@ -1,3 +1,5 @@
+
+
 <?php
   session_start();
 ?>
@@ -25,7 +27,7 @@
         $("#demo3").bootstrapNews({
             newsPerPage: 3,
             autoplay: false,
-
+            
             onToDo: function () {
                 //console.log(this);
             }
@@ -58,7 +60,7 @@
             <ul class="dropdown-menu mega-dropdown-menu row">
               <li class="col-sm-6 section">
                 <ul>
-                  <li class="dropdown-header text-center"><a href="insured.php" style="text-decoration:none;">Ασφαλισμένοι</a></li>
+                  <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
                   <li class="divider divider-header"></li>
                 </ul>
                 <ul class="row">
@@ -261,7 +263,7 @@
           <?php if(!isset($_SESSION['user'])): ?>
           <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
           <?php else: ?>
-          <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
+          <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user']?></a></li>
           <?php endif; ?>
           <?php if(!isset($_SESSION['user'])): ?>
             <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
@@ -287,7 +289,7 @@
     <div class="row text-center target-groups">
       <div class="col-md-2"></div>
       <div class="col-md-2">
-        <div type="button" class="btn btn-info target-group family"><a href="insured.php" style="text-decoration:none;"><h3>Ασφαλισμένοι</h3></a></div>
+        <div type="button" class="btn btn-info target-group family"><h3>Ασφαλισμένοι</h3></div>
       </div>
       <div class="col-md-2">
         <div type="button" class="btn btn-info target-group retired"><h3>Συνταξιούχοι</h3></div>
@@ -339,10 +341,10 @@
         <div class="panel-body">
               <?php
               require_once 'login.php';
-              $conn = new mysqli($hn,$un,$pw,$db);
-              $sql_news = "SELECT notes FROM news";
-              $result_news = $conn->query($sql_news);
-              ?>
+              $conn = new mysqli($hn,$un,$pw,$db); 
+              $sql_news = "SELECT notes FROM news";  
+              $result_news = $conn->query($sql_news);  
+              ?>         
               <ul id="demo3">
               <?php
               if ($result_news->num_rows > 0) {
@@ -353,7 +355,7 @@
               }
               ?>
               </ul>
-
+           
       </div>
     </div>
 
