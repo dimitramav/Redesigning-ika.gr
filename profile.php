@@ -6,21 +6,24 @@
   <title>Προφίλ</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="scripts/validation.js"></script>
   <link rel="stylesheet" href="styles/styles.css">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 
+
 </head>
 <body>
  <!--different content for every link in side menu-->
 <script>
-   function openSection(evt, choice) {
+function openChoice(evt, choice) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -34,7 +37,12 @@
     evt.currentTarget.className += " active";
 
 }
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+// Get the element with id="defaultOpen" and click on it
 </script>
+     
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
@@ -258,11 +266,19 @@
 
           </ul>
 
-          <ul class="nav navbar-nav navbar-right text-center">
-            <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
+            <ul class="nav navbar-nav navbar-right text-center">
+          <!-- Check if the user is logged in -->
+          <?php if(!isset($_SESSION['user'])): ?>
+          <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
+          <?php else: ?>
+          <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
+          <?php endif; ?>
+          <?php if(!isset($_SESSION['user']['username'])): ?>
             <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
-          </ul>
-
+          <?php else: ?>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Αποσύνδεση</a></li>
+          <?php endif; ?>
+        </ul>
           <form class="navbar-form text-center search-form" action="/action_page.php">
             <div class="form-group">
               <input type="text" class="form-control search-box" placeholder="Αναζήτηση" name="search">
@@ -275,48 +291,182 @@
     <!--/.container-fluid -->
   </nav>
     <!-- End Navbar -->
+  <div class="container" style="margin-top: 100px;border: 1px solid #AAA;width:900px;">
+    <div class="row text-center" style="display:flex;">
+      <div class="col-md-3" >
+        <div class="row" style="margin-top: 4px;">
+          <div class="col-md-12">
+            <i class="fa fa-user-circle fa-6x" aria-hidden="true"></i>
+          </div>
+        </div>  
+        <div class="row" style="margin-top: 4px;" >
+          <div class="col-md-12">
+            <?php
+                require_once 'login.php';
+                $conn = new mysqli($hn,$un,$pw,$db);
+                $current_user = $_SESSION['user'];
+                $query = "SELECT * FROM users WHERE username='$current_user'";
+                $result = mysqli_query($conn,$query);
+                $row = mysqli_fetch_array($result, MYSQLI_NUM);
+                $id=$row[0];
+                $username=$row[1];
+                $firstname=$row[3];
+                $lastname=$row[4];
+                $HaveInsurance=$row[5];
+                $HaveRetirement=$row[6];
+                $ama=$row[7];
+                $amka=$row[8];
+                $email=$row[9];
+            ?>
+            <h4>
+            <?php
+                echo $firstname. " " .$lastname;
+            ?></h4>
+          </div>
+        </div>
+        <div class="tab" style="width:100%;">
+          <button class="tablinks active" onclick="openChoice(event, 'userinfo')"><i class="fa fa-user"></i>
+          Στοιχεία Χρήστη</button>
+          <button class="tablinks" onclick="openChoice(event, 'history')"><i class="fa fa-history"></i> Ιστορικό Αιτήσεων</button>
+          <button class="tablinks" onclick="openChoice(event, 'progress')"><i class="fa fa-tasks"></i> Eξέλιξη Αιτήσεων</button>
+          <button class="tablinks" onclick="openChoice(event, 'debt')"> <span class="glyphicon glyphicon-euro "></span>Οφειλές</button>
 
-<!--Sidebar-->
+        </div>
+      </div>  
+      <div class="col-md-9" style="border-left: 1px solid #AAA; flex:1">
+        <div class="row"  >
+          <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
+            <h3>Στοιχεία Χρήστη</h3></br>
+            <!--form-->
+            <div  onmouseover="validate()" onmouseout="validate()" onclick="validate()">
+              <form action="update_user.php" method="post">
+                <div class="form-group">
+                  <label>Όνομα χρήστη: </label>
+                  <p id="passwordHelp" class="form-text text-muted">Το όνομα χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες.</p>
+                  <input onchange="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" value="<?php 
+                  echo $username; ?>" required>
+                  <p id="usernameError" style="color:red"></p>
+                  <span class="success"></span>
+                  <span class="error"></span>
+                </div>
+                <div class="form-group">
+                  <label>Όνομα: </label>
+                  <input type="username" name="firstname" class="form-control" value="<?php echo $firstname; ?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Επίθετο: </label>
+                  <input type="username" name="lastname" class="form-control" value="<?php echo $lastname; ?>"  required>
+                </div>
+                <div class="form-group">
+                  <label>Email: </label>
+                  <input onchange="checkEmail()" id="emailInput" type="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Α.Μ.Α.: </label>
+                  <input name="ama" class="form-control" value="<?php echo $ama; ?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Α.Μ.Κ.Α.: </label>
+                  <input name="amka" class="form-control" value="<?php echo $amka; ?>" required>
+                </div>
+                <div class="form-group">
+                  <div class="radio" style="text-align: left;">
+                    <?php if ($HaveInsurance==1): ?>
+                    <label><input type="radio" name="HaveInsurance" checked=checked>Ασφαλισμένος</label>
+                    <?else: ?>
+                    <label><input type="radio" name="HaveInsurance" checked=checked>Ασφαλισμένος</label>
+                    <?endif;?>
+                  </div>
+                </div>
+                <button id="mySubmit" type="submit" class="btn btn-primary" style="float: right;">Αποθήκευση αλλαγών</button>
+              </form>
+            </div>
+          <!-- end of form-->
+          </div>
+        </div>
+        <div class="row" >
+          <div id="history" class="col-md-12 tabcontent" style="display:none"  >
+            <h3>Ιστορικό αιτήσεων</h3></br>
+                <?php
+                    require_once 'login.php';
+                    $conn = new mysqli($hn,$un,$pw,$db);
+                    // Check Connection
+                    if ($conn->connect_error) die ($conn->connect_error);
+                    // attempt insert query execution
+                      $sql = "SELECT * FROM applications WHERE users_id=$id AND completed=1; ";
+                      $result=mysqli_query($conn,$sql);
+                      if (mysqli_num_rows($result) == 0) {
+                          echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
+                          exit;
+                      }
+                      $counter = 0;   
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="row">';
+                          echo '<div class="col-md-3">';
+                            echo "Δήλωση " .(++$counter);
+                          echo '</div>';
+                          echo '<div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Aποθήκευση PDF" style="color:#ff7400"><i class="fa fa-download fa-2x"></i></a>';
+                          echo'</div>';
+                          echo ' <div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
+                          echo '</div>';
+                          echo '<div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
+                          echo '</div>';
+                        echo '</div>';
+                        echo '</br>';
+                      }
+                    mysqli_close($conn);
+            ?>
+             
 
-<div class="container-fluid">
-  <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:200px;margin-top: 80px; overflow:auto">
-    <div class="row text-center" style="margin-top: 20px; margin-bottom: 20px; border-bottom-style: solid;">
-      <div class="col-md-3">
-          <i class ="fas fa-user-circle fa-3x" style="vertical-align:middle;"></i>
-      </div>
-      <div class="col-md-9">
-            <a href="#" class="w3-bar-item"  style="text-decoration:none;color:#777;"><h4>maria papathanasiou</h4></a>
-      </div>
-    </div>
-    <div class="tab">
-      <button class="tablinks" onclick="openSection(event, 'current_user')"><i class ="fas fa-user"></i>  Στοιχεία χρήστη</button>
-      <button class="tablinks" onclick="openSection(event, 'history')"><span class="glyphicon glyphicon-repeat"></span>  Ιστορικό αιτήσεων</button>
-      <button class="tablinks" onclick="openSection(event, 'progress')"><span class="glyphicon glyphicon-list-alt"></span>  Εξέλιξη αιτήσεων</button>
-      <button class="tablinks" onclick="openSection(event, 'debt')"><span class="glyphicon glyphicon-euro"></span>  Οφειλές</button>
-  </div>
-</div>
-<div id="current_user" class="tabcontent">
-  <h3 style="margin-top: 80px;">current_user</h3>
-
-</div>
-
-<div id="history" class="tabcontent" style="margin-top: 500px;background-color: red;">
-  <p class="text-center">History</p>
-</div>
-
-<div id="progress" class="tabcontent">
-  <h3>progress</h3>
-</div>
-
-<div id="debt" class="tabcontent">
-  <h3>debt</h3>
-</div>
-  <!--End side panel-->
-
-
-
-</div>
-
+          </div>
+        </div>
+        <div class="row">
+          <div id="progress" class="col-md-12 tabcontent" style="display:none" >
+            <?php
+                    require_once 'login.php';
+                    $conn = new mysqli($hn,$un,$pw,$db);
+                    // Check Connection
+                    if ($conn->connect_error) die ($conn->connect_error);
+                    // attempt insert query execution
+                      $sql = "SELECT * FROM applications WHERE users_id=$id";
+                      $result=mysqli_query($conn,$sql);
+                      if (mysqli_num_rows($result) == 0) {
+                          echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
+                          exit;
+                      }
+                      $counter = 0;   
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="row">';
+                          echo '<div class="col-md-3">';
+                            echo "Δήλωση " .(++$counter);
+                          echo '</div>';
+                          echo '<div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Aποθήκευση PDF" style="color:#ff7400"><i class="fa fa-download fa-2x"></i></a>';
+                          echo'</div>';
+                          echo ' <div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
+                          echo '</div>';
+                          echo '<div class="col-md-3" style="text-align: right;">';
+                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
+                          echo '</div>';
+                        echo '</div>';
+                        echo '</br>';
+                      }
+                    mysqli_close($conn);
+            ?>
+          </div>
+        </div>
+        <div class="row" >
+          <div id="debt" class="col-md-12 tabcontent" style="display:none" >
+                  <p>debt</p>
+          </div>
+        </div>
+      </div><!--end of class col md 9-->
+  </div> <!--end of container-->
+</div>  <!--end of container fluid-->
 
 
     <!-- Footer - Sitemap -->
