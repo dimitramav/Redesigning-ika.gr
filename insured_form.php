@@ -529,6 +529,36 @@
                 Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
               </span>
             </div>
+            <div class="row" style="padding-top: 60px;" onmouseover="validateForm()" onmouseout="validateForm()" onclick="validateForm()"  onchange="validateForm()">
+            <!-- Form -->
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+            <form action="imp_form.php" method="post">
+              <div class="form-group">
+                <label>Όνομα: </label>
+                <input id="nameInput" type="username" name="name" class="form-control"  placeholder="Εισάγετε το όνομα του έμμεσα ασφαλισμένου" required>
+                <p id="errorMessage" style="color:red;"></p>
+              </div>
+              <div class="form-group">
+                <label>Επίθετο: </label>
+                <input id="surnameInput" type="text" name="surname" class="form-control"  placeholder="Εισάγετε το επώνυμο του έμμεσα ασφαλισμένου" required>
+                <p id="errorMessage2" style="color:red;"></p>
+              </div>
+              <div class="form-group">
+                <label>Συγγένεια: </label>
+              <div class="radio">
+                <label><input type="radio" name="relative" value="1">Παιδί</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="relative" value="0">Σύζυγος</label>
+              </div>
+            </div>
+              <button type="submit" class="btn btn-primary">Υποβολή</button>
+            </form>
+          </div>
+          <div class="col-sm-4"></div>
+          </div>
+            <!-- End of Form -->
         </div>
 
         <!-- Start of footer sitemap -->

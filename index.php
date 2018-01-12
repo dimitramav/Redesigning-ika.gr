@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
-<body>
 
+<body>
 <script type="text/javascript">
     $(function () {
         $("#demo3").bootstrapNews({
@@ -483,9 +483,6 @@
     </div>
   </footer>
   <!-- End of footer sitemap -->
-
-
-
 </div>
 
 </body>

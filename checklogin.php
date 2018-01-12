@@ -24,6 +24,7 @@
     // Create Session Variable
     //session_start();
     $_SESSION['user'] = $username;
+    $_SESSION['id'] =$row['id'];
     // close connection
     mysqli_close($conn);
     // Redirect to homepage

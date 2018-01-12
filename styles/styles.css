@@ -714,3 +714,25 @@ p.box-content {
 .login-help{
   font-size: 12px;
 }
+
+/* Success Message Page */
+
+#success-message {
+
+}
+
+#success-app {
+  margin-top: 50px;
+}
+
+#success-app2 {
+margin-top: 50px;
+}
+
+#button-success {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  background: #009933;
+  font-size: 20px;
+}

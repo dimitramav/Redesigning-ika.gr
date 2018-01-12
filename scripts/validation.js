@@ -78,6 +78,23 @@ function validate() {
   }
 }
 
+
+function validateForm()
+{
+    var name = document.getElementById('nameInput').value;
+    var surname = document.getElementById('surnameInput').value;
+    if (name == null || name == "")
+    {
+        document.getElementById("errorMessage").innerHTML = "Το πεδίο είναι υποχρεωτικό";
+        console.log("Please Fill All Required Field");
+        return false;
+    }
+    else {
+        document.getElementById("errorMessage").innerHTML = "";
+    }
+}
+
+
 /* Ajax call to check if username already exists */
 /* Asynchronous call */
 $(document).ready(function(){
