@@ -22,10 +22,12 @@ function checkEmail() {
     var email = document.getElementById("emailInput").value;
     if(re.test(email.toLowerCase())) {
       document.getElementById("emailInput").style.borderColor = "green";
+      document.getElementById("emailnotOk").innerHTML = "";
       return true;
     }
     else {
       document.getElementById("emailInput").style.borderColor = "red";
+      document.getElementById("emailnotOk").innerHTML = "Παρακαλώ εισάγετε ένα έγκυρο email.";
       return false;
     }
     /* Test is a function that checks if a string matches a regular expression */
@@ -83,14 +85,24 @@ function validateForm()
 {
     var name = document.getElementById('nameInput').value;
     var surname = document.getElementById('surnameInput').value;
-    if (name == null || name == "")
+    if ((name == null || name == "") && (surname != null || surname != ""))
     {
         document.getElementById("errorMessage").innerHTML = "Το πεδίο είναι υποχρεωτικό";
-        console.log("Please Fill All Required Field");
+        document.getElementById("errorMessage2").innerHTML = "";
         return false;
     }
-    else {
-        document.getElementById("errorMessage").innerHTML = "";
+    else if ((name == null || name == "") && (surname == null || surname == "") ) {
+        document.getElementById("errorMessage").innerHTML = "Το πεδίο είναι υποχρεωτικό";
+        document.getElementById("errorMessage2").innerHTML = "Το πεδίο είναι υποχρεωτικό";
+        return true;
+    }
+    else if((name != null || name == "") && (surname == null || surname == "")) {
+      document.getElementById("errorMessage").innerHTML = "";
+      document.getElementById("errorMessage2").innerHTML = "Το πεδίο είναι υποχρεωτικό";
+    }
+    else if((name != null || name != "") && (surname != null || surname != "")) {
+      document.getElementById("errorMessage").innerHTML = "";
+      document.getElementById("errorMessage2").innerHTML = "";
     }
 }
 
