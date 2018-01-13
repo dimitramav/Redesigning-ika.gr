@@ -50,5 +50,5 @@
   // close connection
   mysqli_close($conn);
   // Redirect to success_form
-  //header("Location: success_form.php");
+  header("Location: success_form.php");
  ?>
