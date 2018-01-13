@@ -19,6 +19,9 @@
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
+
+  <script>
+</script>
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
