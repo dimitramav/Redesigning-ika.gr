@@ -340,7 +340,7 @@ $('#click').click(function(){
       <div class="col-md-9" style="border-left: 1px solid #AAA; flex:1">
         <div class="row"  >
           <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
-            <h3>Στοιχεία Χρήστη</h3></br>
+            <h3 style="border-bottom: 1px solid #AAA;">Στοιχεία Χρήστη</h3></br>
             <!--form-->
             <div  onmouseover="validate()" onmouseout="validate()" onclick="validate()">
               <form action="update_user.php" method="post">
@@ -390,7 +390,7 @@ $('#click').click(function(){
         </div>
         <div class="row" >
           <div id="history" class="col-md-12 tabcontent" style="display:none"  >
-            <h3>Ιστορικό αιτήσεων</h3></br>
+            <h3 style="border-bottom: 1px solid #AAA;">Ιστορικό αιτήσεων</h3></br>
                 <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
@@ -428,7 +428,7 @@ $('#click').click(function(){
         </div>
         <div class="row">
           <div id="progress" class="col-md-12 tabcontent" style="display:none" >
-            <h3>Εξέλιξη αιτήσεων</h3></br>
+            <h3 style="border-bottom: 1px solid #AAA;">Εξέλιξη αιτήσεων</h3></br>
             <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
@@ -463,7 +463,7 @@ $('#click').click(function(){
         </div>
         <div class="row" >
           <div id="debt" class="col-md-12 tabcontent" style="display:none" >
-                  <p>debt</p>
+                  <h3 style="border-bottom: 1px solid #AAA;">Οφειλές</h3>
           </div>
         </div>
       </div><!--end of class col md 9-->
