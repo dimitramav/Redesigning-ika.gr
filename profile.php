@@ -40,6 +40,10 @@ function openChoice(evt, choice) {
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
+
+$('#click').click(function(){
+    $('#progressBar').val(60);
+});
 // Get the element with id="defaultOpen" and click on it
 </script>
      
@@ -336,7 +340,7 @@ $(document).ready(function(){
       <div class="col-md-9" style="border-left: 1px solid #AAA; flex:1">
         <div class="row"  >
           <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
-            <h3>Στοιχεία Χρήστη</h3></br>
+            <h3 style="border-bottom: 1px solid #AAA;">Στοιχεία Χρήστη</h3></br>
             <!--form-->
             <div  onmouseover="validate()" onmouseout="validate()" onclick="validate()">
               <form action="update_user.php" method="post">
@@ -386,7 +390,7 @@ $(document).ready(function(){
         </div>
         <div class="row" >
           <div id="history" class="col-md-12 tabcontent" style="display:none"  >
-            <h3>Ιστορικό αιτήσεων</h3></br>
+            <h3 style="border-bottom: 1px solid #AAA;">Ιστορικό αιτήσεων</h3></br>
                 <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
@@ -424,6 +428,7 @@ $(document).ready(function(){
         </div>
         <div class="row">
           <div id="progress" class="col-md-12 tabcontent" style="display:none" >
+            <h3 style="border-bottom: 1px solid #AAA;">Εξέλιξη αιτήσεων</h3></br>
             <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
@@ -442,15 +447,13 @@ $(document).ready(function(){
                           echo '<div class="col-md-3">';
                             echo "Δήλωση " .(++$counter);
                           echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Aποθήκευση PDF" style="color:#ff7400"><i class="fa fa-download fa-2x"></i></a>';
-                          echo'</div>';
-                          echo ' <div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
-                          echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
-                          echo '</div>';
+                        if($row["completed"]==1):
+                          echo '<progress class="col-md-8" id="progressBar" value="100" max="100" />';  
+                        else:  ?>
+                          <progress class="col-md-8" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
+                        <?
+                        endif;
+
                         echo '</div>';
                         echo '</br>';
                       }
@@ -460,7 +463,7 @@ $(document).ready(function(){
         </div>
         <div class="row" >
           <div id="debt" class="col-md-12 tabcontent" style="display:none" >
-                  <p>debt</p>
+                  <h3 style="border-bottom: 1px solid #AAA;">Οφειλές</h3>
           </div>
         </div>
       </div><!--end of class col md 9-->
