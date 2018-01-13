@@ -38,7 +38,7 @@ function openChoice(evt, choice) {
 
 }
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
 $('#click').click(function(){
@@ -46,7 +46,7 @@ $('#click').click(function(){
 });
 // Get the element with id="defaultOpen" and click on it
 </script>
-     
+
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
@@ -262,12 +262,7 @@ $('#click').click(function(){
                 </li>
 
               </ul>
-
-
-
             </li>
-
-
           </ul>
 
             <ul class="nav navbar-nav navbar-right text-center">
@@ -277,7 +272,7 @@ $('#click').click(function(){
           <?php else: ?>
           <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
           <?php endif; ?>
-          <?php if(!isset($_SESSION['user']['username'])): ?>
+          <?php if(!isset($_SESSION['user'])): ?>
             <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
           <?php else: ?>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Αποσύνδεση</a></li>
@@ -302,13 +297,14 @@ $('#click').click(function(){
           <div class="col-md-12">
             <i class="fa fa-user-circle fa-6x" aria-hidden="true"></i>
           </div>
-        </div>  
+        </div>
         <div class="row" style="margin-top: 4px;" >
           <div class="col-md-12">
             <?php
                 require_once 'login.php';
                 $conn = new mysqli($hn,$un,$pw,$db);
                 $current_user = $_SESSION['user'];
+                mysqli_query($conn, "SET NAMES 'utf8'");
                 $query = "SELECT * FROM users WHERE username='$current_user'";
                 $result = mysqli_query($conn,$query);
                 $row = mysqli_fetch_array($result, MYSQLI_NUM);
@@ -336,7 +332,7 @@ $('#click').click(function(){
           <button class="tablinks" onclick="openChoice(event, 'debt')"> <span class="glyphicon glyphicon-euro "></span>Οφειλές</button>
 
         </div>
-      </div>  
+      </div>
       <div class="col-md-9" style="border-left: 1px solid #AAA; flex:1">
         <div class="row"  >
           <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
@@ -347,7 +343,7 @@ $('#click').click(function(){
                 <div class="form-group">
                   <label>Όνομα χρήστη: </label>
                   <p id="passwordHelp" class="form-text text-muted">Το όνομα χρήστη πρέπει να περιέχει τουλάχιστον 5 χαρακτήρες.</p>
-                  <input onchange="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" value="<?php 
+                  <input onchange="checkUsername()" type="text" name="username" class="form-control" id="usernameInput" value="<?php
                   echo $username; ?>" required>
                   <p id="usernameError" style="color:red"></p>
                   <span class="success"></span>
@@ -403,7 +399,7 @@ $('#click').click(function(){
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
-                      $counter = 0;   
+                      $counter = 0;
                       while ($row = mysqli_fetch_assoc($result)) {
                         echo '<div class="row">';
                           echo '<div class="col-md-3">';
@@ -423,7 +419,7 @@ $('#click').click(function(){
                       }
                     mysqli_close($conn);
             ?>
-             
+
           </div>
         </div>
         <div class="row">
@@ -441,14 +437,14 @@ $('#click').click(function(){
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
-                      $counter = 0;   
+                      $counter = 0;
                       while ($row = mysqli_fetch_assoc($result)) {
                         echo '<div class="row">';
                           echo '<div class="col-md-3">';
                             echo "Δήλωση " .(++$counter);
                           echo '</div>';
                         if($row["completed"]==1):
-                          echo '<progress class="col-md-8" id="progressBar" value="100" max="100" />';  
+                          echo '<progress class="col-md-8" id="progressBar" value="100" max="100" />';
                         else:  ?>
                           <progress class="col-md-8" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
                         <?
