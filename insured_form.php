@@ -536,12 +536,12 @@
             <form action="imp_form.php" method="post" onmouseover="validateForm()" onmouseout="validateForm()" onclick="validateForm()" onchange="validateForm()">
               <div class="form-group">
                 <label>Όνομα: </label>
-                <input id="nameInput" type="username" name="name" class="form-control"  placeholder="Εισάγετε το όνομα του έμμεσα ασφαλισμένου" required>
+                <input style="text-transform:uppercase"  id="nameInput" type="username" name="name" class="form-control"  placeholder="Εισάγετε το όνομα του έμμεσα ασφαλισμένου" required>
                 <p id="errorMessage" style="color:red;"></p>
               </div>
               <div class="form-group">
                 <label>Επίθετο: </label>
-                <input onchange="validateForm()" onclick="validateForm()" id="surnameInput" type="text" name="surname" class="form-control"  placeholder="Εισάγετε το επώνυμο του έμμεσα ασφαλισμένου" required>
+                <input style="text-transform:uppercase"  onchange="validateForm()" onclick="validateForm()" id="surnameInput" type="text" name="surname" class="form-control"  placeholder="Εισάγετε το επώνυμο του έμμεσα ασφαλισμένου" required>
                 <p id="errorMessage2" style="color:red;"></p>
               </div>
               <div class="form-group">
