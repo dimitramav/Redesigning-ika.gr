@@ -303,7 +303,9 @@
       </div>
       <div class="form-group">
         <label>Email: </label>
-        <input onchange="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας" required>
+        <input onchange="checkEmail()" onmouseover="checkEmail()" onmouseout="checkEmail()" id="emailInput" type="email" name="email" class="form-control" placeholder="Εισάγετε το email σας" required>
+        <p id="emailOk" style="color:green;"></p>
+        <p id="emailnotOk" style="color:red;"></p>
       </div>
       <div class="form-group">
         <label>Α.Μ.Α.: </label>
