@@ -11,14 +11,14 @@
  if ($conn->connect_error) die ($conn->connect_error);
  // Escape user inputs for security
  // Take arguments from POST method
- $username = mysqli_real_escape_string($conn, $_REQUEST['username']);
- $password = mysqli_real_escape_string($conn, $_REQUEST['password']);
+ $app_id = $_GET["id"];
+ echo $app_id;
  //echo $username;
  //echo $password;
  // Select from users where username and password
  mysqli_query($conn, "SET NAMES 'utf8'");
 
- $query = "SELECT * FROM applications WHERE users_id = 42";
+ $query = "SELECT * FROM applications WHERE idapplications=$app_id";
  $res= $conn->query($query);
  $res->data_seek(0);
  $row = $res->fetch_assoc();
@@ -57,10 +57,14 @@ try {
 	die("Error: " . $p->get_errmsg());
     }
 
-    $p->setfont($font, 24.0);
+    $p->setfont($font, 30.0);
     $p->set_text_pos(50, 700);
-    $p->show("ΔΗΛΩΣΗ ΕΜΜΕΣΑ ΑΣΦΑΛΙΣΜΕΝΟΥ");
+    $p->show("ΙΔΡΥΜΑ ΚΟΙΝΩΝΙΚΩΝ ΑΣΦΑΛΙΣΕΩΝ");
+    $p->setfont($font, 24.0);
     $p->continue_text("");
+    $p->continue_text("ΔΗΛΩΣΗ ΕΜΜΕΣΑ ΑΣΦΑΛΙΣΜΕΝΟΥ");
+    $p->continue_text("");
+    $p->setfont($font, 16.0);
     $p->continue_text("ΟΝΟΜΑ: ");
     $p->show($name);
     $p->continue_text("");
