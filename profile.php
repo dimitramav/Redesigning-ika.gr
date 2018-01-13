@@ -40,6 +40,10 @@ function openChoice(evt, choice) {
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
+
+$('#click').click(function(){
+    $('#progressBar').val(60);
+});
 // Get the element with id="defaultOpen" and click on it
 </script>
      
@@ -424,6 +428,7 @@ $(document).ready(function(){
         </div>
         <div class="row">
           <div id="progress" class="col-md-12 tabcontent" style="display:none" >
+            <h3>Εξέλιξη αιτήσεων</h3></br>
             <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
@@ -442,15 +447,13 @@ $(document).ready(function(){
                           echo '<div class="col-md-3">';
                             echo "Δήλωση " .(++$counter);
                           echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Aποθήκευση PDF" style="color:#ff7400"><i class="fa fa-download fa-2x"></i></a>';
-                          echo'</div>';
-                          echo ' <div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
-                          echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
-                          echo '</div>';
+                        if($row["completed"]==1):
+                          echo '<progress class="col-md-8" id="progressBar" value="100" max="100" />';  
+                        else:  ?>
+                          <progress class="col-md-8" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
+                        <?
+                        endif;
+
                         echo '</div>';
                         echo '</br>';
                       }
