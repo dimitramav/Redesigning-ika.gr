@@ -207,6 +207,12 @@ function printPDF(app_id) {
   window.open(url,'_blank').print();
 }
 
+function printPDF1(app_id) {
+  console.log(app_id);
+  var url = "tax_form.php/?id=" + app_id;
+  window.open(url,'_blank').print();
+}
+
 function startDownload(app_id) {
     var url = "dynamic_pdf.php/?id=" + app_id;
     window.open(url,'_self');

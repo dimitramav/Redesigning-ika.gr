@@ -29,7 +29,7 @@
 
   <script>
 $(function(){
-    $('#date').combodate();    
+    $('#date').combodate();
 });
 </script>
 
@@ -58,7 +58,7 @@ $(function(){
               <ul class="dropdown-menu mega-dropdown-menu row">
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
+                    <li class="dropdown-header text-center"><a href="insured.php">Ασφαλισμένοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -73,7 +73,7 @@ $(function(){
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
+                            <li class="text-center list-header"><a href="insured_application.php">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Νέα Δήλωση</a></li>
                             <li class="list-el"><a href="#">Παρακολούθηση Αίτησης</a></li>
@@ -122,7 +122,7 @@ $(function(){
                 <!-- Second row Employers and Disabilities -->
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Συνταξιούχοι</a></li>
+                    <li class="dropdown-header text-center"><a href="retired.php">Συνταξιούχοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -136,7 +136,7 @@ $(function(){
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
+                            <li class="text-center list-header"><a href="confirmation.php">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Βεβαίωση Σύνταξης</a></li>
                         </ul>
@@ -280,255 +280,8 @@ $(function(){
     </div>
     <!--/.container-fluid -->
   </nav>
-    <!-- End Navbar --><body>
-      <div class="container-fluid">
-      <!-- Navbar Code -->
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-        <a class="navbar-brand" href="index.php">
-          <img src="/eam/images/logo.svg" width="80" height="80" class="d-inline-block align-top" alt="">
-        </a>
-            <a class="navbar-brand" href="index.php">Ίδρυμα Κοινωνικών Ασφαλίσεων</a>
-          </div>
-          <div class="collapse navbar-collapse js-navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class="dropdown mega-dropdown text-center">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Περιεχόμενα<span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+    <!-- End Navbar -->
 
-                  <ul class="dropdown-menu mega-dropdown-menu row">
-                    <li class="col-sm-6 section">
-                      <ul>
-                        <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                      <ul class="row">
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#"><br>Συνταξιοδότηση</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-                                <li class="list-el"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
-                            </ul>
-
-                          </li>
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Νέα Δήλωση</a></li>
-                                <li class="list-el"><a href="#">Παρακολούθηση Αίτησης</a></li>
-                            </ul>
-
-                          </li>
-
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Ασφαλιστικές <br>Παροχές</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Επιδόματα Διακοπών</a></li>
-                                <li class="list-el"><a href="#">Άδεια Μητρότητας</a></li>
-                                <li class="list-el"><a href="#">Αναρρωτική Άδεια</a></li>
-                            </ul>
-                          </li>
-
-                      </ul>
-
-                       <ul>
-                        <li class="dropdown-header text-center"><a href="#">Εργοδότες</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                       <ul class="row">
-                          <li class="col-sm-6">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Αναλυτική Περιοδική <br> Δήλωση</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Υποβολή Δήλωσης</a></li>
-                                <li class="list-el"><a href="#">Δικαιολογητικά</a></li>
-                            </ul>
-
-                          </li>
-                          <li class="col-sm-6">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Βεβαίωση Ασφαλιστικής <br>Ενημερότητας</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Λήψη Δήλωσης</a></li>
-                                <li class="list-el"><a href="#">Δικαιολογητικά</a></li>
-                            </ul>
-
-                          </li>
-
-                      </ul>
-                    </li>
-                    <!-- Second row Employers and Disabilities -->
-                    <li class="col-sm-6 section">
-                      <ul>
-                        <li class="dropdown-header text-center"><a href="#">Συνταξιούχοι</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                      <ul class="row">
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Ενημέρωση Μηνιαίας <br> Σύνταξης</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-                            </ul>
-
-                          </li>
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Βεβαίωση Σύνταξης</a></li>
-                            </ul>
-
-                          </li>
-
-                          <li class="col-sm-4">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Πρόγραμμα Κατ'οίκον <br> Φροντίδας</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Αίτηση</a></li>
-                                <li class="list-el"><a href="#">Δικαιολογητικά</a></li>
-                                <li class="list-el"><a href="#">Παροχές Προγράμματος</a></li>
-                            </ul>
-                          </li>
-                      </ul>
-                    </li>
-
-
-                    <li class="col-sm-6">
-                      <ul>
-                        <li class="dropdown-header text-center"><a href="#">A.M.E.A.</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                      <ul class="row">
-                          <li class="col-sm-6">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Αναπηρική <br> Σύνταξη</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-                                <li class="list-el"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
-                            </ul>
-
-                          </li>
-                          <li class="col-sm-6">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Πιστοποίηση Ποσοστού <br>Αναπηρίας</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Κέντρα Πιστοποίηση <br>Αναπηρίας (Κ.Ε.Π.Α.)</a></li>
-                            </ul>
-
-                          </li>
-
-                      </ul>
-                    </li>
-
-                    <li class="col-sm-9 section">
-                      <ul>
-                        <li class="dropdown-header text-center"><a href="#">Συχνές Ερωτήσεις</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                      <ul class="row">
-                          <li class="col-sm-3">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Συνταξιοδότηση</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Δικαιούμαι Σύνταξη ;</a></li>
-                                <li class="list-el"><a href="#">Λεξικό όρων</a></li>
-                            </ul>
-
-                          </li>
-                          <li class="col-sm-3">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Αναπηρία</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Δικαιούμαι σύνταξη ;</a></li>
-                            </ul>
-
-                          </li>
-
-                          <li class="col-sm-3">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Ασφάλιση</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Πως αποκτώ Αριθμό Μητρώου Ασφαλισμένου (Α.Μ.Α.) ;</a></li>
-                                <li class="list-el"><a href="#">Είμαι αλλοδαπός: Μπορώ να ασφαλιστώ ;</a></li>
-                            </ul>
-
-                          </li>
-
-                          <li class="col-sm-3">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-header"><a href="#">Επικοινωνία</a></li>
-                                <li class="divider"></li>
-                                <li class="list-el"><a href="#">Που βρίσκεται το κοντινότερο υποκατάστημα ;</a></li>
-                            </ul>
-
-                          </li>
-
-                      </ul>
-                    </li>
-
-                    <li class="col-sm-3 section">
-                      <ul>
-                        <li class="dropdown-header text-center"><a href="#">Το ίδρυμα</a></li>
-                        <li class="divider divider-header"></li>
-                      </ul>
-                      <ul class="row">
-                          <li class="col-sm-12">
-                            <ul class="inner-list text-center">
-                                <li class="text-center list-el"><a href="#">Διοίκηση</a></li>
-                                <li class="list-el"><a href="#">Ιστορικό</a></li>
-                                <li class="list-el"><a href="#">Όραμα</a></li>
-                            </ul>
-
-                          </li>
-
-                      </ul>
-                    </li>
-
-                  </ul>
-
-
-
-                </li>
-
-
-              </ul>
-
-              <ul class="nav navbar-nav navbar-right text-center">
-                <!-- Check if the user is logged in -->
-                <?php if(!isset($_SESSION['user'])): ?>
-                <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
-                <?php else: ?>
-                <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
-                <?php endif; ?>
-                <?php if(!isset($_SESSION['user'])): ?>
-                  <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
-                <?php else: ?>
-                  <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Αποσύνδεση</a></li>
-                <?php endif; ?>
-              </ul>
-              <form class="navbar-form text-center search-form" action="/action_page.php">
-                <div class="form-group">
-                  <input type="text" class="form-control search-box" placeholder="Αναζήτηση" name="search">
-                </div>
-              </form>
-
-            </div>
-          <!--/.nav-collapse -->
-        </div>
-        <!--/.container-fluid -->
-      </nav>
-        <!-- End Navbar -->
 
         <div class="container line">
           <ol style="margin-top:80px;" class="breadcrumb">
@@ -596,7 +349,7 @@ $(function(){
               <ul class="inner-list">
                   <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
                   <li class="divider"></li>
-                  <li class="section-title"><a href="#"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
+                  <li class="section-title"><a href="insured_application.php"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
                   <li class="footer-item"><a href="#">Νέα Δήλωση</a></li>
               </ul>
             </div>
@@ -622,7 +375,7 @@ $(function(){
               <ul class="inner-list">
                   <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
                   <li class="divider"></li>
-                  <li class="section-title"><a href="#"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
+                  <li class="section-title"><a href="confirmation.php"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
                   <li class="footer-item"><a href="#">Βεβαίωση Σύνταξης</a></li>
               </ul>
             </div>
