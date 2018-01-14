@@ -12,14 +12,21 @@
  // Select from users where username and password
  mysqli_query($conn, "SET NAMES 'utf8'");
 
- $query = "SELECT * FROM applications WHERE idapplications=$app_id";
+ $query = "SELECT * FROM users WHERE id=$app_id";
  $res= $conn->query($query);
  $res->data_seek(0);
  $row = $res->fetch_assoc();
- $name = $row['imp_name'];
+ $name = $row['firstname'];
  $name = grstrtoupper($name);
- $surname = $row['imp_surname'];
+ $surname = $row['lastname'];
  $surname = grstrtoupper($surname);
+
+ $app_date = date("d-m-Y");
+ $completed = 1;
+ mysqli_query($conn, "SET NAMES 'utf8'");
+ $query = "INSERT INTO applications (completed, users_id, app_date) VALUES ('$completed', '$app_id', '$app_date')";
+ $res= $conn->query($query);
+
 try {
 
     $p = new PDFlib();
@@ -59,13 +66,23 @@ try {
     $p->continue_text("ΒΕΒΑΙΩΣΗ ΓΙΑ ΦΟΡΟΛΟΓΙΚΗ ΧΡΗΣΗ");
     $p->continue_text("");
     $p->setfont($font, 16.0);
-    $p->continue_text("ΒΕΒΑΙΩΝΟΥΜΕ ΟΤΙ Ο / Η ΣΥΝΤΑΞΙΟΥΧΟΣ ΜΕ ΟΝΟΜΑ: ");
-    $p->continue_text($name);
+    $p->continue_text("ΒΕΒΑΙΩΝΟΥΜΕ ΟΤΙ Ο / Η ΣΥΝΤΑΞΙΟΥΧΟΣ ΜΕ");
+    $p->continue_text("");
+    $p->continue_text("ΟΝΟΜΑ: ".$name);
     $p->show(" ");
     $p->show($surname);
-    $p->show("ΛΑΜΒΑΝΕΙ ΜΗΝΙΑΙΑ ΤΟ ΠΟΣΟ ΤΩΝ ");
-    $p->show(" 3000");
-    $p->show(" ΕΥΡΩ");
+    $p->show(" ΛΑΜΒΑΝΕΙ ΜΗΝΙΑΙΑ ΤΟ ΠΟΣΟ ");
+    $p->continue_text("");
+    $p->continue_text("ΤΩΝ ".$row['money']." ΕΥΡΩ");
+    $p->continue_text("");
+    $total = $row['money'] * 12;
+    $p->continue_text("ΕΤΗΣΙΟ ΕΙΣΟΔΗΜΑ: ".$total." ΕΥΡΩ");
+    $tax = $total * 6/100;
+    $total = $total - $tax;
+    $p->continue_text("");
+    $p->continue_text("ΦΟΡΟΣ: ".$tax." ΕΥΡΩ");
+    $p->continue_text("");
+    $p->continue_text("ΚΑΘΑΡΟ ΕΙΣΟΔΗΜΑ: ".$total." ΕΥΡΩ");
     $p->end_page_ext("");
 
     $p->end_document("");
@@ -75,7 +92,7 @@ try {
 
     header("Content-type: application/pdf");
     header("Content-Length: $len");
-    header("Content-Disposition: inline; filename=Δήλωση Έμμεσα Ασφαλισμένου.pdf");
+    header("Content-Disposition: inline; filename=Βεβαίωση για φορολογική χρήση.pdf");
     print $buf;
 
 }

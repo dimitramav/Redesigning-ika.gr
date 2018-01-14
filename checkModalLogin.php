@@ -23,7 +23,13 @@
   if($res->num_rows == 1 && password_verify($password, $row['password'])) {
     // Create Session Variable
     //session_start();
+    $query = "SELECT * FROM users WHERE username = '$username'";
+    $res= $conn->query($query);
+    $res->data_seek(0);
+    $row = $res->fetch_assoc();
+    $_SESSION['id'] = $row[id];
     $_SESSION['user'] = $username;
+    $_SESSION['retire'] = $row['HaveRetirement'];
     // close connection
     mysqli_close($conn);
     echo "success";
