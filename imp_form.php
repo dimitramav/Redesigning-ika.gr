@@ -14,6 +14,7 @@
   $imp_surname =  grstrtoupper($imp_surname);
   // 1 for child, 0 for husband / wife
   $relative = mysqli_real_escape_string($conn, $_REQUEST['relative']);
+  $imp_birthday=mysqli_real_escape_string($conn,$_REQUEST['date']);
 
   if($relative == 1) {
     $isChild = 1;

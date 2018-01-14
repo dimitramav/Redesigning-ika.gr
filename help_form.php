@@ -18,21 +18,8 @@
   <link rel="stylesheet" href="styles/styles.css">
   <script src="scripts/validation.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
-  <script src="combodate-1.0.7/combodate.js"></script>
-  <script src="node_modules/moment/moment.js"></script>
-    <script src="node_modules/moment/locale/el.js"></script>
-
-
-
 </head>
 <body>
-
-  <script>
-$(function(){
-    $('#date').combodate();    
-});
-</script>
-
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
@@ -542,26 +529,20 @@ $(function(){
                 Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
               </span>
             </div>
-            <div class="row" style="padding-top: 60px;">
+            <div class="row" style="padding-top: 60px;" onmouseover="validateForm()" onmouseout="validateForm()" onclick="validateForm()"  onchange="validateForm()">
             <!-- Form -->
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-            <form action="imp_form.php" method="post" onmouseover="validateForm()" onmouseout="validateForm()" onclick="validateForm()" onchange="validateForm()">
+            <form action="imp_form.php" method="post">
               <div class="form-group">
                 <label>Όνομα: </label>
-                <input style="text-transform:uppercase"  id="nameInput" type="username" name="name" class="form-control"  placeholder="Εισάγετε το όνομα του έμμεσα ασφαλισμένου" required>
+                <input id="nameInput" type="username" name="name" class="form-control"  placeholder="Εισάγετε το όνομα του έμμεσα ασφαλισμένου" required>
                 <p id="errorMessage" style="color:red;"></p>
               </div>
               <div class="form-group">
                 <label>Επίθετο: </label>
-                <input style="text-transform:uppercase"  onchange="validateForm()" onclick="validateForm()" id="surnameInput" type="text" name="surname" class="form-control"  placeholder="Εισάγετε το επώνυμο του έμμεσα ασφαλισμένου" required>
+                <input id="surnameInput" type="text" name="surname" class="form-control"  placeholder="Εισάγετε το επώνυμο του έμμεσα ασφαλισμένου" required>
                 <p id="errorMessage2" style="color:red;"></p>
-              </div>
-              <div class="form-group">
-                <label>Ημερομηνία Γέννησης Έμμεσα Ασφαλισμένου: </label></br>
-                <input type="text" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="09-01-2013">
-
-
               </div>
               <div class="form-group">
                 <label>Συγγένεια: </label>
