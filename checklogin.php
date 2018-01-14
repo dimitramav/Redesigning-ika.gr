@@ -24,7 +24,8 @@
     // Create Session Variable
     //session_start();
     $_SESSION['user'] = $username;
-    $_SESSION['id'] =$row['id'];
+    $_SESSION['id'] = $row['id'];
+    $_SESSION['retire'] = $row['HaveRetirement'];
     // close connection
     mysqli_close($conn);
     // Redirect to homepage

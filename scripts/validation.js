@@ -175,6 +175,30 @@ $("#connect").click(function(){
 
 });
 
+$(document).ready(function(){
+// Check if modal sign in is ok
+$("#connect1").click(function(){
+  $.ajax({
+  url : "checkModalLogin.php",// your username checker url
+  type : "POST",
+  data : {"username":$("#modalUsername").val(), "password":$("#modalPassword").val()},
+  success : function (data)
+          {
+            console.log(data);
+            if (data == "fail") {
+              console.log("hoho");
+              $( ".errorModal" ).html("<div class='alert alert-danger fade in'><strong>Λάθος όνομα χρήστη ή κωδικός πρόσβασης</div>");
+            }
+            else {
+              document.location = 'confirmation.php';
+              $( ".errorModal" ).html("");
+            }
+          }
+  });
+});
+
+});
+
 /* Print the dynamic PDF */
 
 function printPDF(app_id) {

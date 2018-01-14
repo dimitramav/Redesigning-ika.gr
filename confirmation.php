@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Δήλωση Έμμεσα Ασφαλισμένου</title>
+  <title>Βεβαίωση Σύνταξης για Φορολογική Χρήση</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -273,12 +273,12 @@
     <div class="container line">
       <ol style="margin-top:80px;" class="breadcrumb">
         <li><a href="index.php">Αρχική Σελίδα</a></li>
-        <li><a href="insured.php">Ασφαλισμένοι</a></li>
-        <li class="active"><a href="insured.php">Δήλωση Έμμεσα Ασφαλισμένου Προσώπου</a></li>
+        <li><a href="retired.php">Συνταξιούχοι</a></li>
+        <li class="active"><a href="confirmation.php">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
       </ol>
         <div class="horizontal-line app">
           <span style="font-size: 30px; background-color: #FFF; padding: 0 10px; font-weight: bold;">
-            Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
+            Έκδοση Βεβαίωσης Σύνταξης για Φορολογική Χρήση<!--Padding is optional-->
           </span>
         </div>
 
@@ -318,11 +318,18 @@
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
                 <div class="text-center paper" style="background-color: #f9f9f9; height: 300px; margin-left: 14px;">
-                  <?php if(!isset($_SESSION['user'])): ?>
-                  <p class="box-header app" style="padding-top: 120px;"><a href="#" data-toggle="modal" data-target="#login-modal">Δημιούργησε μία νέα Δήλωση</a></p>
-                  <?php else: ?>
-                  <p class="box-header app" style="padding-top: 120px;"><a href="insured_form.php">Aποθήκευσε την βεβαίωση σύνταξής σου <br> σε μορφή PDF</a></p>
-                  <?php endif; ?>
+
+
+                <?php if(isset($_SESSION['user']) && $_SESSION['retire']): ?>
+                    <?php echo "<p class='box-header app' style='padding-top: 120px;'><a href='tax_form.php?id=" .$_SESSION['id']. "'target='_blank'>Αποθήκευσε την βεβαίωση <br>σε μορφή PDF</a></p>";?>
+                <?php endif; ?>
+                <?php if(!isset($_SESSION['user'])): ?>
+                <p class="box-header app" style="padding-top: 120px;"><a href="#" data-toggle="modal" data-target="#login-modal">Δημιούργησε μία νέα Δήλωση</a></p>
+              <?php endif; ?>
+
+                <?php if(isset($_SESSION['user']) && !$_SESSION['retire']): ?>
+                  <p class="box-header app" style="padding-top: 120px;">Δεν έχεις συνδεθεί ως συνταξιούχος.</p>
+                <?php endif; ?>
 
                 </div>
               </div>
@@ -470,13 +477,12 @@
   				<div class="loginmodal-container">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
   					<h1>Συνδέσου στο Λογαριασμό σου</h1><br>
-
             <div class="errorModal"></div>
             <label>Όνομα Χρήστη :</label>
   					<input id="modalUsername" type="text" name="username" placeholder="Όνομα Χρήστη">
             <label>Κωδικός Πρόσβασης :</label>
   					<input id="modalPassword" type="password" name="password" placeholder="Κωδικός Πρόσβασης">
-  					<input id="connect" type="submit" name="login" class="login loginmodal-submit" value="Σύνδεση">
+  					<input id="connect1" type="submit" name="login" class="login loginmodal-submit" value="Σύνδεση">
   				  <div class="login-help">
 
   				  </div>

@@ -290,7 +290,7 @@
         <div type="button" onclick="location.href = 'insured.php';" class="btn btn-info target-group family"><h3>Ασφαλισμένοι</h3></div>
       </div>
       <div class="col-md-2">
-        <div type="button" class="btn btn-info target-group retired"><h3>Συνταξιούχοι</h3></div>
+        <div type="button" onclick="location.href = 'retired.php';" class="btn btn-info target-group retired"><h3>Συνταξιούχοι</h3></div>
       </div>
       <div class="col-md-2">
         <div type="button" class="btn btn-info target-group employer"><h3>Εργοδότες</h3></div>

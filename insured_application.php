@@ -228,19 +228,11 @@
                             <li class="list-el"><a href="#">Ιστορικό</a></li>
                             <li class="list-el"><a href="#">Όραμα</a></li>
                         </ul>
-
                       </li>
-
                   </ul>
                 </li>
-
               </ul>
-
-
-
             </li>
-
-
           </ul>
 
           <ul class="nav navbar-nav navbar-right text-center">
@@ -344,7 +336,6 @@
                   <?php else: ?>
                   <p class="box-header app" style="padding-top: 120px;"><a href="insured_form.php">Δημιούργησε μία νέα Δήλωση</a></p>
                   <?php endif; ?>
-
                 </div>
               </div>
               <div class="col-sm-1"></div>
