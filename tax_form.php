@@ -24,7 +24,11 @@
  $app_date = date("d-m-Y");
  $completed = 1;
  mysqli_query($conn, "SET NAMES 'utf8'");
- $query = "INSERT INTO applications (completed, users_id, app_date) VALUES ('$completed', '$app_id', '$app_date')";
+ $query="SELECT * FROM applications WHERE users_id=$app_id";
+ $res= $conn->query($query);
+ $anything_found = mysqli_num_rows($res);
+ if($anything_found==0)
+  $query = "INSERT INTO applications (completed, users_id, app_date) VALUES ('$completed', '$app_id', '$app_date')";
  $res= $conn->query($query);
 
 try {

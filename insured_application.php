@@ -45,7 +45,7 @@
               <ul class="dropdown-menu mega-dropdown-menu row">
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
+                    <li class="dropdown-header text-center"><a href="insured.php">Ασφαλισμένοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -60,7 +60,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
+                            <li class="text-center list-header"><a href="insured_application.php">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Νέα Δήλωση</a></li>
                             <li class="list-el"><a href="#">Παρακολούθηση Αίτησης</a></li>
@@ -109,7 +109,7 @@
                 <!-- Second row Employers and Disabilities -->
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Συνταξιούχοι</a></li>
+                    <li class="dropdown-header text-center"><a href="retired.php">Συνταξιούχοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -123,7 +123,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
+                            <li class="text-center list-header"><a href="confirmation.php">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Βεβαίωση Σύνταξης</a></li>
                         </ul>
@@ -366,7 +366,7 @@
         <ul class="inner-list">
             <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
             <li class="divider"></li>
-            <li class="section-title"><a href="#"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
+            <li class="section-title"><a href="insured_application.php"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
             <li class="footer-item"><a href="#">Νέα Δήλωση</a></li>
         </ul>
       </div>
@@ -392,7 +392,7 @@
         <ul class="inner-list">
             <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
             <li class="divider"></li>
-            <li class="section-title"><a href="#"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
+            <li class="section-title"><a href="confirmation.php"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
             <li class="footer-item"><a href="#">Βεβαίωση Σύνταξης</a></li>
         </ul>
       </div>

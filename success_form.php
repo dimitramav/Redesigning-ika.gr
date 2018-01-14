@@ -23,6 +23,7 @@
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
+  <!-- Static navbar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -45,7 +46,7 @@
               <ul class="dropdown-menu mega-dropdown-menu row">
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="insured.php" style="text-decoration:none;">Ασφαλισμένοι</a></li>
+                    <li class="dropdown-header text-center"><a href="insured.php">Ασφαλισμένοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -60,7 +61,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
+                            <li class="text-center list-header"><a href="insured_application.php">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Νέα Δήλωση</a></li>
                             <li class="list-el"><a href="#">Παρακολούθηση Αίτησης</a></li>
@@ -109,7 +110,7 @@
                 <!-- Second row Employers and Disabilities -->
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Συνταξιούχοι</a></li>
+                    <li class="dropdown-header text-center"><a href="retired.php">Συνταξιούχοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -123,7 +124,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
+                            <li class="text-center list-header"><a href="confirmation.php">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Βεβαίωση Σύνταξης</a></li>
                         </ul>
@@ -289,7 +290,7 @@
             <i class ="fas fa-check-circle fa-8x" style="padding-top: 10px; color: #009933"></i>
             <h1 id="success-message">Σας ευχαριστούμε !</h1>
             <h3 id="success-app">Η αίτηση σας είναι υπό επεξεργασία .</h3>
-            <button onclick="location.href = 'profile.php#progress';" id="button-success" class="btn btn-default">Παρακολούθηση του αιτήματος</button>
+            <button onclick="location.href = 'profile.php';" id="button-success" class="btn btn-default">Παρακολούθηση του αιτήματος</button>
             <br>
             <a href="index.php">&#8592;Επιστροφή στην αρχική</a>
           </div>
@@ -298,10 +299,9 @@
 
     </div>
 
-    <!-- Footer - Sitemap -->
+    <!-- Start of footer sitemap -->
     <footer>
       <div class="row">
-
         <div class="col-sm-2">
           <ul class="inner-list">
               <li class="footer-header">Ασφαλισμένοι</li>
@@ -315,7 +315,7 @@
           <ul class="inner-list">
               <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
               <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
+              <li class="section-title"><a href="insured_application.php"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
               <li class="footer-item"><a href="#">Νέα Δήλωση</a></li>
           </ul>
         </div>
@@ -341,7 +341,7 @@
           <ul class="inner-list">
               <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
               <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
+              <li class="section-title"><a href="confirmation.php"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
               <li class="footer-item"><a href="#">Βεβαίωση Σύνταξης</a></li>
           </ul>
         </div>

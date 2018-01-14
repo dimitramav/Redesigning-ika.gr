@@ -40,7 +40,7 @@
               <ul class="dropdown-menu mega-dropdown-menu row">
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Ασφαλισμένοι</a></li>
+                    <li class="dropdown-header text-center"><a href="insured.php">Ασφαλισμένοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -55,7 +55,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
+                            <li class="text-center list-header"><a href="insured_application.php">Δήλωση Έμμεσα <br> Ασφαλισμένου</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Νέα Δήλωση</a></li>
                             <li class="list-el"><a href="#">Παρακολούθηση Αίτησης</a></li>
@@ -104,7 +104,7 @@
                 <!-- Second row Employers and Disabilities -->
                 <li class="col-sm-6 section">
                   <ul>
-                    <li class="dropdown-header text-center"><a href="#">Συνταξιούχοι</a></li>
+                    <li class="dropdown-header text-center"><a href="retired.php">Συνταξιούχοι</a></li>
                     <li class="divider divider-header"></li>
                   </ul>
                   <ul class="row">
@@ -118,7 +118,7 @@
                       </li>
                       <li class="col-sm-4">
                         <ul class="inner-list text-center">
-                            <li class="text-center list-header"><a href="#">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
+                            <li class="text-center list-header"><a href="confirmation.php">Βεβαίωση Σύνταξης για Φορολογική Χρήση</a></li>
                             <li class="divider"></li>
                             <li class="list-el"><a href="#">Βεβαίωση Σύνταξης</a></li>
                         </ul>
@@ -239,10 +239,18 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right text-center">
+            <!-- Check if the user is logged in -->
+            <?php if(!isset($_SESSION['user'])): ?>
             <li><a href="signup.php"><i class ="fas fa-user"></i> Εγγραφή</a></li>
-            <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
+            <?php else: ?>
+            <li><a href="profile.php"><i class ="fas fa-user"></i> <?php echo $_SESSION['user'] ?></a></li>
+            <?php endif; ?>
+            <?php if(!isset($_SESSION['user'])): ?>
+              <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Σύνδεση</a></li>
+            <?php else: ?>
+              <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Αποσύνδεση</a></li>
+            <?php endif; ?>
           </ul>
-
           <form class="navbar-form text-center search-form" action="/action_page.php">
             <div class="form-group">
               <input type="text" class="form-control search-box" placeholder="Αναζήτηση" name="search">
@@ -335,132 +343,131 @@
   </div>
 </div>
 
-    <!-- Footer - Sitemap -->
-    <footer>
+<!-- Start of footer sitemap -->
+<footer>
+  <div class="row">
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header">Ασφαλισμένοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Συνταξιοδότηση</a></li>
+          <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
+          <li class="footer-item"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="insured_application.php"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
+          <li class="footer-item"><a href="#">Νέα Δήλωση</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Ασφαλιστικές Παροχές</a></li>
+          <li class="footer-item"><a href="#">Επιδόματα Διακοπών</a></li>
+          <li class="footer-item"><a href="#">Άδεια Μητρότητας</a></li>
+          <li class="footer-item"><a href="#">Αναρρωτική Άδεια</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header">Συνταξιούχοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Ενημέρωση Μηνιαίας Σύνταξης</a></li>
+          <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="confirmation.php"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
+          <li class="footer-item"><a href="#">Βεβαίωση Σύνταξης</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Πρόγραμμα Κατ'οίκον Φροντίδας</a></li>
+          <li class="footer-item"><a href="#">Αίτηση</a></li>
+          <li class="footer-item"><a href="#">Δικαιολογητικά</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header">Εργοδότες</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Αναλυτική Περιοδική Δήλωση</a></li>
+          <li class="footer-item"><a href="#">Υποβολή Δήλωσης</a></li>
+          <li class="footer-item"><a href="#">Δικαιολογητικά</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Εργοδότες</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Βεβαίωση Ασφαλιστικής Ενημερότητας</a></li>
+          <li class="footer-item"><a href="#">Λήψη Δήλωσης</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header">Α.Μ.Ε.Α.</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Αναπηρική Σύνταξη</a></li>
+          <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
+          <li class="footer-item"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <ul class="inner-list">
+          <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
+          <li class="divider"></li>
+          <li class="section-title"><a href="#"><br>Πιστοποίηση Ποσοστού Αναπηρίας</a></li>
+          <li class="footer-item"><a href="#">Κέντρα Πιστοποίησης (Κ.Ε.Π.Α.)</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+  </div>
+  <div class="row footer2" style="background-color: black">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
       <div class="row">
-
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header">Ασφαλισμένοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Συνταξιοδότηση</a></li>
-              <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-              <li class="footer-item"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Δήλωση Έμμεσα Ασφαλισμένου</a></li>
-              <li class="footer-item"><a href="#">Νέα Δήλωση</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Ασφαλισμένοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Ασφαλιστικές Παροχές</a></li>
-              <li class="footer-item"><a href="#">Επιδόματα Διακοπών</a></li>
-              <li class="footer-item"><a href="#">Άδεια Μητρότητας</a></li>
-              <li class="footer-item"><a href="#">Αναρρωτική Άδεια</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header">Συνταξιούχοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Ενημέρωση Μηνιαίας Σύνταξης</a></li>
-              <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Βεβαίωση Σύνταξης για Εφορία</a></li>
-              <li class="footer-item"><a href="#">Βεβαίωση Σύνταξης</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Πρόγραμμα Κατ'οίκον Φροντίδας</a></li>
-              <li class="footer-item"><a href="#">Αίτηση</a></li>
-              <li class="footer-item"><a href="#">Δικαιολογητικά</a></li>
-          </ul>
-        </div>
+        <div class="col-sm-2"><a href="#" style="color: white"><h5>About Us</h5></a></div>
+        <div class="col-sm-2"><a href="#" style="color: white"><h5>Επικοινωνία</h5></a></div>
+        <div class="col-sm-8"></div>
       </div>
-
-
+    </div>
+    <div class="col-sm-4">
       <div class="row">
-
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header">Εργοδότες</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Αναλυτική Περιοδική Δήλωση</a></li>
-              <li class="footer-item"><a href="#">Υποβολή Δήλωσης</a></li>
-              <li class="footer-item"><a href="#">Δικαιολογητικά</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Εργοδότες</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Βεβαίωση Ασφαλιστικής Ενημερότητας</a></li>
-              <li class="footer-item"><a href="#">Λήψη Δήλωσης</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header">Α.Μ.Ε.Α.</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Αναπηρική Σύνταξη</a></li>
-              <li class="footer-item"><a href="#">Υπολογισμός Ποσού Σύνταξης</a></li>
-              <li class="footer-item"><a href="#">Αίτηση Συνταξιοδότησης</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="inner-list">
-              <li class="footer-header" style="color: #333">Συνταξιούχοι</li>
-              <li class="divider"></li>
-              <li class="section-title"><a href="#"><br>Πιστοποίηση Ποσοστού Αναπηρίας</a></li>
-              <li class="footer-item"><a href="#">Κέντρα Πιστοποίησης (Κ.Ε.Π.Α.)</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-
+        <div class="col-sm-8"><h5>Created by <a class="footer-link" href="https://github.com/YolandaKok">Yolanda Kokkinou</a> & <a class="footer-link" href="https://github.com/dimitramav">Dimitra Mavroforaki</a> 2017</h5></div>
+        <div class="col-sm-4">
+          <img src="images/by.svg" style="height: 30px; weight: 30px;"/>
+          <img src="images/cc.svg" style="height: 30px; weight: 30px;"/>
+          <img src="images/nc-eu.svg" style="height: 30px; weight: 30px;"/>
+          <img src="images/sa.svg" style="height: 30px; weight: 30px;"/>
         </div>
       </div>
-      <div class="row footer2" style="background-color: black">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-4">
-          <div class="row">
-            <div class="col-sm-2"><a href="#" style="color: white"><h5>About Us</h5></a></div>
-            <div class="col-sm-2"><a href="#" style="color: white"><h5>Επικοινωνία</h5></a></div>
-            <div class="col-sm-8"></div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="row">
-            <div class="col-sm-8"><h5>Created by <a class="footer-link" href="https://github.com/YolandaKok">Yolanda Kokkinou</a> & <a class="footer-link" href="https://github.com/dimitramav">Dimitra Mavroforaki</a> 2017</h5></div>
-            <div class="col-sm-4">
-              <img src="images/by.svg" style="height: 30px; weight: 30px;"/>
-              <img src="images/cc.svg" style="height: 30px; weight: 30px;"/>
-              <img src="images/nc-eu.svg" style="height: 30px; weight: 30px;"/>
-              <img src="images/sa.svg" style="height: 30px; weight: 30px;"/>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2"></div>
-      </div>
-    </footer>
-    <!-- End of footer sitemap -->
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</footer>
+<!-- End of footer sitemap -->
 
 </div>
 </body>
