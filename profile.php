@@ -398,24 +398,53 @@ $('#click').click(function(){
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
-
+                      $count=0;
                       while ($row = mysqli_fetch_assoc($result)) {
+                        $count++;
+                        if($count==1)
+                        {
+                          echo '<div class="row">';
+                          echo '<div class="col-md-5">';
+                          echo '<h4>Τύπος δήλωσης:</h4>';
+                          echo '</div>';
+                          echo '<div class="col-md-4">';
+                          echo '<h4>Ημερομηνία Υποβολής:</h4>';
+                          echo '</div>';
+                          echo '<div class="col-md-3">';
+                          echo '<h4>Ενέργειες:</h4>';
+                          echo '</div>';
+                          echo '</div>';
+                        }
                         echo '<hr>';
                         echo '<div class="row">';
-                          echo '<div class="col-md-6">';
                           if($row['imp_insured']) {
-                            echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><h4>Δήλωση Έμμεσα Ασφαλισμένου για ".$row['imp_name']." ".$row['imp_surname']."</h4></a>";
+                            echo '<div class="col-md-5">';
+                              echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><p>Δήλωση Έμμεσα Ασφαλισμένου </p></a>";
+                            echo '</div>';
                           }
-                          else {
-
+                          else{
+                            echo '<div class="col-md-5">';
+                              echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><p>Βεβαίωση σύνταξης </p></a>";
+                            echo '</div>';
                           }
+                            echo '<div class="col-md-4">';
+                              echo "<p class=text-center>".$row['app_date']."</p>";
+                            echo '</div>';
+                            echo '<div class="col-md-3">';
+                            echo '<div class=row>';
+                            echo '<div class="col-md-4">';
+                              echo "<a class=pull-right href='dynamic_pdf.php?id=" .$row['idapplications']. "'target='_blank' data-toggle='tooltip' data-placement='bottom' title='Aποθήκευση PDF' style='color:#ff7400'><i class='fa fa-download fa-2x'></i></a>";
+                            echo '</div>';
+                            echo '<div class="col-md-4">';
+                              echo '<a  href="/mypath" data-toggle="tooltip" data-placement="bottom" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
+                            echo '</div>';
+                            echo '<div class="col-md-4">';
+                              echo '<a  class= pull-left href="#"onclick="printPDF('.$row['idapplications'].')" data-toggle="tooltip" data-placement="bottom" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                          
                           echo '</div>';
-                          echo '<div class="col-md-6">';
-                            echo "<a class='pull-right' href='dynamic_pdf.php?id=" .$row['idapplications']. "'target='_blank' data-toggle='tooltip' data-placement='right' title='Aποθήκευση PDF' style='color:#ff7400'><i class='fa fa-download fa-2x'></i></a>";
-                            echo '<a class="pull-right" href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
-                            echo '<a class="pull-right" href="#"onclick="printPDF('.$row['idapplications'].')" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
-                          echo '</div>';
-                        echo '</div>';
                         echo '<hr>';
                       }
                     mysqli_close($conn);
@@ -441,23 +470,52 @@ $('#click').click(function(){
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
-                      $counter = 0;
+                      $count = 0;
 
                       while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="row">';
-                          echo '<div class="col-md-6">';
-                            echo "Δήλωση Έμμεσα Ασφαλισμένου για " .$row["imp_name"]. " " .$row["imp_surname"] ."(". $row["app_date"].")";
+                        $count++;
+                        if($count==1)
+                        {
+                          echo '<div class="row">';
+                          echo '<div class="col-md-5">';
+                          echo '<h4>Τύπος δήλωσης:</h4>';
                           echo '</div>';
-                        if($row["completed"]==1):
-                          echo '<progress class="col-md-6" id="progressBar" value="100" max="100" />';
-                        else:  ?>
-                          <progress class="col-md-6" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
-                        <?
-                        endif;
-
-                        echo '</div>';
-                        echo '</br>';
+                          echo '<div class="col-md-4">';
+                          echo '<h4>Ημερομηνία Υποβολής:</h4>';
+                          echo '</div>';
+                          echo '<div class="col-md-3">';
+                          echo '<h4>Εξέλιξη:</h4>';
+                          echo '</div>';
+                          echo '</div>';
+                        }
+                        echo '<hr>';
+                        echo '<div class="row">';
+                          if($row['imp_insured']) {
+                            echo '<div class="col-md-5">';
+                              echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><p>Δήλωση Έμμεσα Ασφαλισμένου </p></a>";
+                            echo '</div>';
+                          }
+                          else{
+                            echo '<div class="col-md-5">';
+                              echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><p>Βεβαίωση σύνταξης </p></a>";
+                            echo '</div>';
+                          }
+                            echo '<div class="col-md-4">';
+                              echo "<p class=text-center>".$row['app_date']."</p>";
+                            echo '</div>';
+                            if($row["completed"]==1):
+                              echo '<progress class="col-md-3" id="progressBar" value="100" max="100" />';
+                            else:  ?>
+                              <progress class="col-md-3" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" /><?
+                            endif;
+            
+                          echo '</div>';
+                        echo '<hr>';
                       }
+
+
+
+
                     mysqli_close($conn);
             ?>
           </div>
