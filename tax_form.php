@@ -56,19 +56,16 @@ try {
     $p->show("ΙΔΡΥΜΑ ΚΟΙΝΩΝΙΚΩΝ ΑΣΦΑΛΙΣΕΩΝ");
     $p->setfont($font, 24.0);
     $p->continue_text("");
-    $p->continue_text("ΔΗΛΩΣΗ ΕΜΜΕΣΑ ΑΣΦΑΛΙΣΜΕΝΟΥ");
+    $p->continue_text("ΒΕΒΑΙΩΣΗ ΓΙΑ ΦΟΡΟΛΟΓΙΚΗ ΧΡΗΣΗ");
     $p->continue_text("");
     $p->setfont($font, 16.0);
-    $p->continue_text("ΟΝΟΜΑ: ");
-    $p->show($name);
-    $p->continue_text("");
-    $p->continue_text("ΕΠΙΘΕΤΟ: ");
+    $p->continue_text("ΒΕΒΑΙΩΝΟΥΜΕ ΟΤΙ Ο / Η ΣΥΝΤΑΞΙΟΥΧΟΣ ΜΕ ΟΝΟΜΑ: ");
+    $p->continue_text($name);
+    $p->show(" ");
     $p->show($surname);
-    $p->continue_text("");
-    if($row['isChild']) $child = "ΠΑΙΔΙ";
-    if(!$row['isChild']) $child = "ΣΥΖΥΓΟΣ";
-    $p->continue_text("ΣΥΓΓΕΝΕΙΑ: ");
-    $p->show($child);
+    $p->show("ΛΑΜΒΑΝΕΙ ΜΗΝΙΑΙΑ ΤΟ ΠΟΣΟ ΤΩΝ ");
+    $p->show(" 3000");
+    $p->show(" ΕΥΡΩ");
     $p->end_page_ext("");
 
     $p->end_document("");
