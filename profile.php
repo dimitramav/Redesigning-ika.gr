@@ -17,8 +17,6 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link href="fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
-
-
 </head>
 <body>
  <!--different content for every link in side menu-->
@@ -290,7 +288,7 @@ $('#click').click(function(){
     <!--/.container-fluid -->
   </nav>
     <!-- End Navbar -->
-  <div class="container" style="margin-top: 100px;border: 1px solid #AAA;width:900px;">
+  <div class="container profile-container">
     <div class="row text-center" style="display:flex;">
       <div class="col-md-3" >
         <div class="row" style="margin-top: 4px;">
@@ -338,7 +336,7 @@ $('#click').click(function(){
           <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
             <h3 style="border-bottom: 1px solid #AAA;">Στοιχεία Χρήστη</h3></br>
             <!--form-->
-            <div  onmouseover="validate()" onmouseout="validate()" onclick="validate()">
+            <div onclick="validate()">
               <form action="update_user.php" method="post">
                 <div class="form-group">
                   <label>Όνομα χρήστη: </label>
@@ -359,7 +357,7 @@ $('#click').click(function(){
                 </div>
                 <div class="form-group">
                   <label>Email: </label>
-                  <input onchange="checkEmail()" id="emailInput" type="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
+                  <input id="emailInput" type="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Α.Μ.Α.: </label>
@@ -393,29 +391,31 @@ $('#click').click(function(){
                     // Check Connection
                     if ($conn->connect_error) die ($conn->connect_error);
                     // attempt insert query execution
-                      $sql = "SELECT * FROM applications WHERE users_id=$id AND completed=1; ";
+                      $sql = "SELECT * FROM applications WHERE users_id = $id AND completed = 1;";
                       $result=mysqli_query($conn,$sql);
                       if (mysqli_num_rows($result) == 0) {
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
-                      $counter = 0;
+
                       while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<hr>';
                         echo '<div class="row">';
-                          echo '<div class="col-md-3">';
-                            echo "Δήλωση " .(++$counter);
+                          echo '<div class="col-md-6">';
+                          if($row['imp_insured']) {
+                            echo "<a href='#'><h4>Δήλωση Έμμεσα Ασφαλισμένου</h4></a>";
+                          }
+                          else {
+
+                          }
                           echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Aποθήκευση PDF" style="color:#ff7400"><i class="fa fa-download fa-2x"></i></a>';
-                          echo'</div>';
-                          echo ' <div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
-                          echo '</div>';
-                          echo '<div class="col-md-3" style="text-align: right;">';
-                            echo '<a href="/mypath" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
+                          echo '<div class="col-md-6">';
+                            echo "<a class='pull-right' href='dynamic_pdf.php?id=" .$row['idapplications']. "'target='_blank' data-toggle='tooltip' data-placement='right' title='Aποθήκευση PDF' style='color:#ff7400'><i class='fa fa-download fa-2x'></i></a>";
+                            echo '<a class="pull-right" href="/mypath" data-toggle="tooltip" data-placement="right" title="Τροποποίηση" ><i class="fas fa fa-pencil-square-o fa-2x" style="color:#b4b4b4"></i></a>';
+                            echo '<a class="pull-right" href="#"onclick="printPDF('.$row['idapplications'].')" data-toggle="tooltip" data-placement="right" title="Εκτύπωση"><i class="fa fa-print fa-2x"></i></a>';
                           echo '</div>';
                         echo '</div>';
-                        echo '</br>';
+                        echo '<hr>';
                       }
                     mysqli_close($conn);
             ?>

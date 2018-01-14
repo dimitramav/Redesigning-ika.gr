@@ -174,3 +174,11 @@ $("#connect").click(function(){
 });
 
 });
+
+/* Print the dynamic PDF */
+
+function printPDF(app_id) {
+  console.log(app_id);
+  var url = "dynamic_pdf.php/?id=" + app_id;
+  window.open(url,'_blank').print();
+}
