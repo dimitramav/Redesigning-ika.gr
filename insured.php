@@ -277,7 +277,7 @@
         <li class="active"><a href="insured.php">Ασφαλισμένοι</a></li>
       </ol>
         <div class="horizontal-line">
-          <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
+          <span style="font-size: 30px; background-color: #FFF; padding: 0 10px; font-weight: bold;">
             Είσαι ασφαλισμένος ; <!--Padding is optional-->
           </span>
         </div>
@@ -285,35 +285,37 @@
         <!-- Flexbox Grid -->
         <div class="flex-body">
        		<div class="flex-column" style="margin: 40px;">
-        		<div  class="text-center" style="background: #6d7993; cursor: pointer;" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'">
-              <h3 class="padding">
+        		<div  class="text-center paper" style="background: linear-gradient(#1572a8, #003a5b); cursor: pointer; width: 400px;">
+              <h3 class="padding" style="color: white;">
                 <br><br><br>
                 Συνταξιοδότηση
               </h3>
         		</div>
-        		<div style="background: #6d7993;">
+        		<div class="paper" style="background: #f9f9f9;  width: 400px;">
               <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="#" class="questions"><p class="padding">να υπολογίσεις το ποσό της σύνταξης σου ;</p></a>
-              <a href="#" class="questions"><p class="padding">να βρείς σε ποιά ηλικία μπορείς να συνταξιοδοτηθείς ;</p></a>
-              <a href="#" class="questions"><p class="padding">να κάνεις αίτηση συνταξιοδότησης ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να υπολογίσεις το ποσό της σύνταξης σου ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να βρείς σε ποιά ηλικία μπορείς να συνταξιοδοτηθείς ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να κάνεις αίτηση συνταξιοδότησης ;</p></a>
             </div>
       		</div>
 
       		<div class="flex-column" style="margin: 40px;">
-        		<div class="text-center" style="background: #6d7993; cursor: pointer;" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'"><h3 class="padding"><br><br><br>Ασφαλιστικά Προνόμια</h3></div>
-        		<div style="background: #6d7993;">
+        		<div class="text-center" style="background: linear-gradient(#1572a8, #003a5b); width: 400px;cursor: pointer;" >
+              <h3 class="padding" style="color: white;"><br><br><br>Ασφαλιστικά Προνόμια</h3></div>
+        		<div class="paper" style="background: #f9f9f9;  width: 400px;">
               <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="#" class="questions"><p class="padding">να πάρεις άδεια μητρότητας ;</p></a>
-              <a href="#" class="questions"><p class="padding">να πάρεις αναρρωτική άδεια ;</p></a>
-              <a href="#" class="questions"><p class="padding">να πάρεις άδεια διακοπών ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να πάρεις άδεια μητρότητας ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να πάρεις αναρρωτική άδεια ;</p></a>
+              <a href="#" class="questions"><p class="padding bigger">να πάρεις άδεια διακοπών ;</p></a>
             </div>
       		</div>
 
           <div class="flex-column" style="margin: 40px;">
-            <div class="text-center" style="background: #6d7993; cursor: pointer;"  onclick="location.href='insured_application.php'" onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#6d7993'"><h3 class="padding"><br><br>Δήλωση Έμμεσα Ασφαλισμένων Προσώπων</h3></div>
-            <div style="background: #6d7993;">
+            <div class="text-center" style=" width: 400px; background: linear-gradient(#1572a8, #003a5b); cursor: pointer;"  onclick="location.href='insured_application.php'">
+              <h3 class="padding" style="color: white; padding-top: 20px;"><br><br>Δήλωση Έμμεσα Ασφαλισμένων Προσώπων</h3></div>
+            <div class="paper" style="background: #f9f9f9;  width: 400px;">
               <h3 class="padding" style="padding-left:30px;">Θέλεις...</h3>
-              <a href="insured_application.php" class="questions"><p class="padding">να ασφαλίσεις τα αγαπημένα σου πρόσωπα ;</p></a>
+              <a href="insured_application.php" class="questions"><p class="padding bigger">να ασφαλίσεις τα αγαπημένα σου πρόσωπα ;</p></a>
             </div>
           </div>
     	</div>

@@ -15,6 +15,7 @@
   // 1 for child, 0 for husband / wife
   $relative = mysqli_real_escape_string($conn, $_REQUEST['relative']);
   $imp_birthday=mysqli_real_escape_string($conn,$_REQUEST['date']);
+  $app_date = date("d-m-Y");
 
   if($relative == 1) {
     $isChild = 1;
@@ -28,11 +29,9 @@
   // progress 1
   // completed 0
   // imp_insured 1
-  // imp_birthday
   $inprogress = 1;
   $completed = 0;
   $imp_insured = 1;
-  $imp_birthday = 0;
 
   // Insert greek characters in mysql database
   mysqli_query($conn, "SET NAMES 'utf8'");
@@ -41,7 +40,7 @@
   $id = $_SESSION['id'];
   // insert into the database
   // attempt insert query execution
-  $sql = "INSERT INTO applications (imp_insured, inprogress, completed, imp_name, imp_surname, imp_birthday, users_id, isChild, isHusband_Wife) VALUES ('$imp_insured', '$inprogress', '$completed', '$imp_name', '$imp_surname', '$imp_birthday', '$id', '$isChild', '$isHusband_Wife')";
+  $sql = "INSERT INTO applications (imp_insured, inprogress, completed, imp_name, imp_surname, imp_birthday, users_id, isChild, isHusband_Wife, app_date) VALUES ('$imp_insured', '$inprogress', '$completed', '$imp_name', '$imp_surname', '$imp_birthday', '$id', '$isChild', '$isHusband_Wife', '$app_date')";
   if(mysqli_query($conn, $sql)){
       echo "Records added successfully.";
   } else {

@@ -20,42 +20,6 @@
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Open+Sans:700|Roboto" rel="stylesheet">
 </head>
 <body>
-<script>
-  function resetActive(event, percent, step) {
-        $(".progress-bar").css("width", percent + "%").attr("aria-valuenow", percent);
-        $(".progress-completed").text(percent + "%");
-
-        $("div").each(function () {
-            if ($(this).hasClass("activestep")) {
-                $(this).removeClass("activestep");
-            }
-        });
-
-        if (event.target.className == "col-md-4") {
-            $(event.target).addClass("activestep");
-        }
-        else {
-            $(event.target.parentNode).addClass("activestep");
-        }
-
-        hideSteps();
-        showCurrentStepInfo(step);
-    }
-
-    function hideSteps() {
-        $("div").each(function () {
-            if ($(this).hasClass("activeStepInfo")) {
-                $(this).removeClass("activeStepInfo");
-                $(this).addClass("hiddenStepInfo");
-            }
-        });
-    }
-    function showCurrentStepInfo(step) {        
-        var id = "#" + step;
-        $(id).addClass("activeStepInfo");
-    }
-</script>
-
   <div class="container-fluid">
   <!-- Navbar Code -->
   <!-- Static navbar -->
@@ -304,76 +268,6 @@
     <!--/.container-fluid -->
   </nav>
 
-  <!-- MY TEST-->
-<div class="container line">
-      <ol style="margin-top:80px;" class="breadcrumb">
-        <li><a href="index.php">Αρχική Σελίδα</a></li>
-        <li><a href="insured.php">Ασφαλισμένοι</a></li>
-        <li class="active"><a href="insured.php">Δήλωση Έμμεσα Ασφαλισμένου Προσώπου</a></li>
-      </ol>
-        <div class="horizontal-line">
-          <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
-            Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
-          </span>
-        </div>
-<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
-    <div class="row">
-        <div class="progress" id="progress1">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-            </div>
-            <span class="progress-type">Ολοκλήρωση Διαδικασίας</span>
-            <span class="progress-completed">0%</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="row step">
-            <div id="div1" class="col-md-4 activestep" onclick="javascript: resetActive(event, 0, 'step-1');">
-                <i class="fa fa-file"></i>
-                <p>ΒΗΜΑ 1</p>
-            </div>
-            <div class="col-md-4" onclick="javascript: resetActive(event, 50, 'step-2');">
-                <i class="fa fa-user"></i>
-                <p>BHMA 2</p>
-            </div>
-            <div class="col-md-4" onclick="javascript: resetActive(event, 100, 'step-3');">
-                <i class="fa fa-share"></i>
-                <p>ΒΗΜΑ 3</p>
-            </div>
-        </div>
-    </div>
-    <div class="row setup-content step activeStepInfo " id="step-1">
-        <div class="col-xs-12">
-            <div class="col-md-12 well text-center">
-                <h1>BΗΜΑ 1</h1>
-                <h3 class="underline">Συγκέντρωσε τα δικαιολογητικά σε ηλεκτρονική μορφή</h3>
-                1.Πιστοποιητικό γεννήσεως σε μορφή PDF.
-            </div>
-        </div>
-    </div>
-    <div class="row setup-content step hiddenStepInfo" id="step-2">
-        <div class="col-xs-12">
-            <div class="col-md-12 well text-center">
-                <h1>ΒΗΜΑ 2</h1>
-                <h3 class="underline">Δημιούργησε το λογαριασμό σου</h3>
-              <p style="text-align:center;">1. Πάτα το κουμπί πάνω δεξιά στην οθόνη για να εγγραφείς. </p>
-            <p style="text-align:center;"> 2. Αν είσαι ήδη εγγεγραμένος πήγαινε στο Βήμα 3.</p></br>
-            </div>
-        </div>
-    </div>
-    <div class="row setup-content step hiddenStepInfo" id="step-3">
-        <div class="col-xs-12">
-            <div class="col-md-12 well text-center">
-                <h1>ΒΗΜΑ 3</h1>
-                <a href="insured_form.php"><h3 class="underline">Δημιούργησε μία νέα Δήλωση</h3></a>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-  <!-- END OF MY TEST-->
-
     <!-- End Navbar -->
 
     <div class="container line">
@@ -382,8 +276,8 @@
         <li><a href="insured.php">Ασφαλισμένοι</a></li>
         <li class="active"><a href="insured.php">Δήλωση Έμμεσα Ασφαλισμένου Προσώπου</a></li>
       </ol>
-        <div class="horizontal-line">
-          <span style="font-size: 30px; background-color: #FFF; padding: 0 10px;">
+        <div class="horizontal-line app">
+          <span style="font-size: 30px; background-color: #FFF; padding: 0 10px; font-weight: bold;">
             Δήλωση Έμμεσα Ασφαλισμένου <!--Padding is optional-->
           </span>
         </div>
@@ -392,7 +286,7 @@
         <!-- To create the layout with the circles and the arrows -->
         <div class="row">
           <div class="text-center col-sm-4">
-            <div type="button" class="btn btn-info steps text-center"><h3 class="app">ΒΗΜΑ 1</h3></div>
+            <div type="button" class="btn btn-info steps text-center paper" style="background-color:#fc7c00;"><h3 class="app">ΒΗΜΑ 1</h3></div>
             <div class="row">
               <div class="text-center col-sm-12">
                     <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
@@ -401,16 +295,19 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
-                  <p class="box-header">Συγκέντρωσε τα δικαιολογητικά <br> σε ηλεκτρονική μορφή</p>
-                  <p class="box-content">1. Πιστοποιητικό γέννησης <br> σε μορφή PDF</p>
+                <div class="text-center paper" style="background-color: #f9f9f9; height: 300px; margin-left: 14px;">
+                  <br>
+                  <br>
+                  <p class="box-header app">1. Συγκέντρωσε τα δικαιολογητικά <br> σε ηλεκτρονική μορφή</p>
+                  <i class="fa fa-file fa-3x app" style="color: #fc7c00; margin: 10px 0px 20px 0;"></i>
+                  <p class="box-content app bigger">Α) Πιστοποιητικό γέννησης <br> σε μορφή PDF</p>
                 </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
           </div>
           <div class="col-sm-4 text-center">
-            <div type="button" class="btn btn-info steps"><h3 class="app">ΒΗΜΑ 2</h3></div>
+            <div type="button" class="btn btn-info steps paper" style="background-color: #e14946;"><h3 class="app">ΒΗΜΑ 2</h3></div>
             <div class="row">
               <div class="col-sm-12 text-center">
                     <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
@@ -419,17 +316,20 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
-                  <p class="box-header">Δημιούργησε το <br> Λογαριασμό σου</p>
-                  <p class="box-content">1. Πάτα το κουμπί πάνω δεξιά <br> στην οθόνη για να εγγραφείς</p>
-                  <p class="box-content">2. Αν είσαι ήδη εγγεγραμένος <br> πήγαινε στο Βήμα 3 </p>
+                <div class="text-center paper" style="background-color: #f9f9f9; height: 300px; margin-left: 14px;">
+                  <br>
+                  <br>
+                  <p class="box-header app">2. Δημιούργησε το <br> Λογαριασμό σου</p>
+                  <i class="fa fa-user fa-3x" style="color: #e14946; margin: 10px 0px 20px 0;"></i>
+                  <p class="box-content app bigger">A) Πάτα το κουμπί πάνω δεξιά <br> στην οθόνη για να εγγραφείς</p>
+                  <p class="box-content app bigger">Β) Αν είσαι ήδη εγγεγραμένος <br> πήγαινε στο Βήμα 3 </p>
                 </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
           </div>
           <div class="col-sm-4 text-center">
-            <div type="button" class="btn btn-info steps text-center"><h3 class="app">ΒΗΜΑ 3</h3></div>
+            <div type="button" class="btn btn-info steps text-center paper" style="background-color: #009d94;"><h3 class="app">ΒΗΜΑ 3</h3></div>
             <div class="row">
               <div class="col-sm-12 text-center">
                     <div class="glyphicon glyphicon-triangle-bottom text-center"></div>
@@ -438,11 +338,11 @@
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
-                <div class="text-center" style="background-color: #999; height: 300px; margin-left: 14px;">
+                <div class="text-center paper" style="background-color: #f9f9f9; height: 300px; margin-left: 14px;">
                   <?php if(!isset($_SESSION['user'])): ?>
-                  <p class="box-header" style="padding-top: 120px;"><a href="#" data-toggle="modal" data-target="#login-modal">Δημιούργησε μία νέα Δήλωση</a></p>
+                  <p class="box-header app" style="padding-top: 120px;"><a href="#" data-toggle="modal" data-target="#login-modal">Δημιούργησε μία νέα Δήλωση</a></p>
                   <?php else: ?>
-                  <p class="box-header" style="padding-top: 120px;"><a href="insured_form.php">Δημιούργησε μία νέα Δήλωση</a></p>
+                  <p class="box-header app" style="padding-top: 120px;"><a href="insured_form.php">Δημιούργησε μία νέα Δήλωση</a></p>
                   <?php endif; ?>
 
                 </div>

@@ -182,3 +182,9 @@ function printPDF(app_id) {
   var url = "dynamic_pdf.php/?id=" + app_id;
   window.open(url,'_blank').print();
 }
+
+function startDownload(app_id) {
+    var url = "dynamic_pdf.php/?id=" + app_id;
+    window.open(url,'_self');
+
+}
