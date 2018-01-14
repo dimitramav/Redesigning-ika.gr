@@ -289,7 +289,7 @@
             <i class ="fas fa-check-circle fa-8x" style="padding-top: 10px; color: #009933"></i>
             <h1 id="success-message">Σας ευχαριστούμε !</h1>
             <h3 id="success-app">Η αίτηση σας είναι υπό επεξεργασία .</h3>
-            <button id="button-success" class="btn btn-default">Παρακολούθηση του αιτήματος</button>
+            <button onclick="location.href = 'profile.php#progress';" id="button-success" class="btn btn-default">Παρακολούθηση του αιτήματος</button>
             <br>
             <a href="index.php">&#8592;Επιστροφή στην αρχική</a>
           </div>

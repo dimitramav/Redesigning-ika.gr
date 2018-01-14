@@ -1,3 +1,8 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+</style>
+
+
 .navbar {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -558,16 +563,16 @@ h3.padding {
 }
 
 p.padding {
-  color: white;
   padding-left: 15px;
 }
 
 a.questions {
   text-decoration: none;
+  color: black;
 }
 
 p.padding:hover {
-  color: black;
+  color: blue;
 }
 
 /* Styles for insured_application.php */
@@ -591,10 +596,16 @@ h3.app {
   font-size: 35px;
   padding-top: 50px;
   padding-left: 3px;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
+h3,h1,p,h2,a,h4,h5,h6{
+  font-family: 'Open Sans Condensed', sans-serif !important;
+}
+p.bigger{
+  font-size: 17px !important;
+}
  .glyphicon.glyphicon-triangle-bottom {
    font-size: 100px;
    margin-left: 20px;
@@ -836,5 +847,9 @@ margin-top: 50px;
   margin-top: 180px;
   margin-bottom: 150px;
   border: 1px solid #AAA;
-  width:900px;
+}
+
+.paper {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  border-color: #dedede;
 }

@@ -289,10 +289,10 @@ $('#click').click(function(){
   </nav>
     <!-- End Navbar -->
   <div class="container profile-container">
-    <div class="row text-center" style="display:flex;">
+    <div class="row" style="display:flex;">
       <div class="col-md-3" >
         <div class="row" style="margin-top: 4px;">
-          <div class="col-md-12">
+          <div class="col-md-12 text-center">
             <i class="fa fa-user-circle fa-6x" aria-hidden="true"></i>
           </div>
         </div>
@@ -316,7 +316,7 @@ $('#click').click(function(){
                 $amka=$row[8];
                 $email=$row[9];
             ?>
-            <h4>
+            <h4 class="text-center">
             <?php
                 echo $firstname. " " .$lastname;
             ?></h4>
@@ -332,9 +332,9 @@ $('#click').click(function(){
         </div>
       </div>
       <div class="col-md-9" style="border-left: 1px solid #AAA; flex:1">
-        <div class="row"  >
+        <div class="row">
           <div id="userinfo" class="col-md-12 tabcontent" style="display:block">
-            <h3 style="border-bottom: 1px solid #AAA;">Στοιχεία Χρήστη</h3></br>
+            <h3 class="text-center" style="border-bottom: 1px solid #AAA;">Στοιχεία Χρήστη</h3></br>
             <!--form-->
             <div onclick="validate()">
               <form action="update_user.php" method="post">
@@ -384,13 +384,14 @@ $('#click').click(function(){
         </div>
         <div class="row" >
           <div id="history" class="col-md-12 tabcontent" style="display:none"  >
-            <h3 style="border-bottom: 1px solid #AAA;">Ιστορικό αιτήσεων</h3></br>
+            <h3 class="text-center" style="border-bottom: 1px solid #AAA;">Ιστορικό αιτήσεων</h3></br>
                 <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
                     // Check Connection
                     if ($conn->connect_error) die ($conn->connect_error);
                     // attempt insert query execution
+                      mysqli_query($conn, "SET NAMES 'utf8'");
                       $sql = "SELECT * FROM applications WHERE users_id = $id AND completed = 1;";
                       $result=mysqli_query($conn,$sql);
                       if (mysqli_num_rows($result) == 0) {
@@ -403,7 +404,7 @@ $('#click').click(function(){
                         echo '<div class="row">';
                           echo '<div class="col-md-6">';
                           if($row['imp_insured']) {
-                            echo "<a href='#'><h4>Δήλωση Έμμεσα Ασφαλισμένου</h4></a>";
+                            echo "<a href='dynamic_pdf.php?id=".$row['idapplications']."'><h4>Δήλωση Έμμεσα Ασφαλισμένου για ".$row['imp_name']." ".$row['imp_surname']."</h4></a>";
                           }
                           else {
 
@@ -424,29 +425,33 @@ $('#click').click(function(){
         </div>
         <div class="row">
           <div id="progress" class="col-md-12 tabcontent" style="display:none" >
-            <h3 style="border-bottom: 1px solid #AAA;">Εξέλιξη αιτήσεων</h3></br>
+            <h3 class="text-center" style="border-bottom: 1px solid #AAA;">Εξέλιξη αιτήσεων</h3></br>
             <?php
                     require_once 'login.php';
                     $conn = new mysqli($hn,$un,$pw,$db);
                     // Check Connection
                     if ($conn->connect_error) die ($conn->connect_error);
                     // attempt insert query execution
+                    mysqli_query($conn, "SET NAMES 'utf8'");
+
                       $sql = "SELECT * FROM applications WHERE users_id=$id";
+
                       $result=mysqli_query($conn,$sql);
                       if (mysqli_num_rows($result) == 0) {
                           echo "O χρήστης δεν έχει υποβάλει κάποια αίτηση" ;
                           exit;
                       }
                       $counter = 0;
+
                       while ($row = mysqli_fetch_assoc($result)) {
                         echo '<div class="row">';
-                          echo '<div class="col-md-3">';
-                            echo "Δήλωση " .(++$counter);
+                          echo '<div class="col-md-6">';
+                            echo "Δήλωση Έμμεσα Ασφαλισμένου για " .$row["imp_name"]. " " .$row["imp_surname"] ."(". $row["app_date"].")";
                           echo '</div>';
                         if($row["completed"]==1):
-                          echo '<progress class="col-md-8" id="progressBar" value="100" max="100" />';
+                          echo '<progress class="col-md-6" id="progressBar" value="100" max="100" />';
                         else:  ?>
-                          <progress class="col-md-8" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
+                          <progress class="col-md-6" id="progressBar" value="<?php echo htmlspecialchars($row["inprogress"]*25); ?>" max="100" />
                         <?
                         endif;
 
@@ -459,7 +464,7 @@ $('#click').click(function(){
         </div>
         <div class="row" >
           <div id="debt" class="col-md-12 tabcontent" style="display:none" >
-                  <h3 style="border-bottom: 1px solid #AAA;">Οφειλές</h3>
+                  <h3 class="text-center" style="border-bottom: 1px solid #AAA;">Οφειλές</h3>
           </div>
         </div>
       </div><!--end of class col md 9-->
